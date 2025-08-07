@@ -1,0 +1,112 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+    color: #222;
+}
+header {
+    background: #8e44ad;
+    color: #fff;
+    padding: 1.5rem 0 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1.2rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+nav a:hover {
+    color: #ffd700;
+}
+section {
+    max-width: 700px;
+    margin: 2.5rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(142,68,173,0.08);
+    padding: 2rem 2.5rem;
+}
+section h2 {
+    color: #8e44ad;
+    margin-top: 0;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+.gallery-grid img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(142,68,173,0.10);
+    transition: transform 0.2s;
+}
+.gallery-grid img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 16px rgba(142,68,173,0.18);
+}
+.inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+.inquiry-form label {
+    font-weight: 500;
+    color: #8e44ad;
+}
+.inquiry-form input,
+.inquiry-form textarea {
+    padding: 0.7rem 1rem;
+    border: 1px solid #d1b3e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #faf6fd;
+    resize: vertical;
+}
+.inquiry-form button {
+    background: #8e44ad;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.inquiry-form button:hover {
+    background: #6c3483;
+}
+.menu-list {
+    list-style: none;
+    padding: 0;
+}
+.menu-list li {
+    background: #f3e6fa;
+    margin: 0.5rem 0;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+}
+footer {
+    text-align: center;
+    padding: 1.2rem 0;
+    background: #8e44ad;
+    color: #fff;
+    margin-top: 2rem;
+    border-radius: 12px 12px 0 0;
+    font-size: 1rem;
+}
