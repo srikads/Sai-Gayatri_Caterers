@@ -11,8 +11,9 @@ This is a static website for Sai Gayatri Caterers, created as a freelance projec
 - Inquiry form (static, no backend)
 
 ## Freelance Work
-This project was developed as a freelance assignment. For inquiries or similar projects, please contact the developer.
+This project was developed as a freelance assignment. For inquiries or similar projects, please contact me :D
 
 ---
 © 2025 Sai Gayatri Caterers. All rights reserved.
+
 
