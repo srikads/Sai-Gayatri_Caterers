@@ -19,3 +19,27 @@ if (inquiryForm) {
         inquiryForm.reset();
     });
 }
+
+// Language switcher for menu
+const langEnBtn = document.getElementById('lang-en');
+const langTeBtn = document.getElementById('lang-te');
+function setMenuLang(lang) {
+    const enEls = document.querySelectorAll('.menu-item-en, .menu-folder-en');
+    const teEls = document.querySelectorAll('.menu-item-te, .menu-folder-te');
+    if (lang === 'en') {
+        enEls.forEach(el => el.style.display = '');
+        teEls.forEach(el => el.style.display = 'none');
+        langEnBtn.classList.add('active');
+        langTeBtn.classList.remove('active');
+    } else {
+        enEls.forEach(el => el.style.display = 'none');
+        teEls.forEach(el => el.style.display = '');
+        langEnBtn.classList.remove('active');
+        langTeBtn.classList.add('active');
+    }
+}
+if (langEnBtn && langTeBtn) {
+    langEnBtn.addEventListener('click', () => setMenuLang('en'));
+    langTeBtn.addEventListener('click', () => setMenuLang('te'));
+}
+setMenuLang('en');
