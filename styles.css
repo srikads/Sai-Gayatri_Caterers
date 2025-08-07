@@ -5,6 +5,34 @@ body {
     background: #f8f8f8;
     color: #222;
 }
+body, .menu-item-en {
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.menu-item-te, .menu-folder-te {
+    font-family: 'Noto Sans Telugu', 'Segoe UI', Arial, sans-serif;
+}
+.lang-switcher {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.lang-switcher button {
+    background: #fff;
+    color: #8e44ad;
+    border: 1px solid #8e44ad;
+    border-radius: 5px;
+    padding: 0.4rem 1.1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.lang-switcher button.active, .lang-switcher button:hover {
+    background: #8e44ad;
+    color: #fff;
+}
+}
 header {
     background: #8e44ad;
     color: #fff;
@@ -23,6 +51,70 @@ nav a {
     margin: 0 1.2rem;
     font-weight: 500;
     transition: color 0.2s;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropbtn {
+    cursor: pointer;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #fff;
+    min-width: 200px;
+    box-shadow: 0 2px 8px rgba(142,68,173,0.12);
+    z-index: 1;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    color: #222;
+}
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+.dropdown-content a, .dropdown-content span {
+    color: #8e44ad;
+    padding: 0.7rem 1.2rem;
+    text-decoration: none;
+    display: block;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.dropdown-content a:hover, .dropdown-content span:hover {
+    background: #f3e6fa;
+}
+.dropdown-submenu {
+    position: relative;
+}
+.dropdown-submenu > span {
+    font-weight: 600;
+    padding-right: 1.5rem;
+}
+.dropdown-submenu .dropdown-content {
+    left: 100%;
+    top: 0;
+    margin-left: 0.2rem;
+    min-width: 180px;
+}
+.dropdown-submenu:hover > .dropdown-content {
+    display: block;
+}
+.menu-section {
+    margin-bottom: 2rem;
+}
+.menu-section h3 {
+    color: #6c3483;
+    margin-bottom: 0.5rem;
 }
 nav a:hover {
     color: #ffd700;
