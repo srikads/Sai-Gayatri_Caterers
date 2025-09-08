@@ -79,14 +79,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize menu language display first
     initializeMenuLanguage();
     
-    // Set initial states for animations (but ensure menu items are visible)
+    // Set initial states for animations (but keep menu section visible)
     sections.forEach(section => {
-        if (section.id !== 'home') {
+        if (section.id !== 'home' && section.id !== 'menu') {
             section.style.opacity = '0';
             section.style.transform = 'translateY(50px)';
             section.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
         }
     });
+    
+    // Ensure menu section is always visible
+    const menuSection = document.getElementById('menu');
+    if (menuSection) {
+        menuSection.style.opacity = '1';
+        menuSection.style.transform = 'translateY(0)';
+        menuSection.style.visibility = 'visible';
+        menuSection.style.display = 'block';
+    }
     
     // Skip menu item animation for now to ensure visibility
     // menuItems.forEach(item => {
@@ -98,30 +107,26 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => observer.observe(section));
     menuSections.forEach(section => observer.observe(section));
     
-    // Additional safety check after 1 second to ensure menu is visible
+    // Simpler safety check for menu visibility
     setTimeout(() => {
-        const allMenuItems = document.querySelectorAll('.menu-list li');
-        const allMenuSections = document.querySelectorAll('.menu-section');
+        const menuSection = document.getElementById('menu');
+        if (menuSection) {
+            menuSection.style.opacity = '1';
+            menuSection.style.visibility = 'visible';
+            menuSection.style.display = 'block';
+            menuSection.style.transform = 'translateY(0)';
+            console.log('Menu section visibility enforced');
+        }
         
-        console.log('Safety check - ensuring menu visibility');
-        
-        allMenuItems.forEach(item => {
-            if (item.style.opacity !== '1' || item.style.display === 'none') {
-                item.style.display = 'block';
-                item.style.opacity = '1';
-                item.style.visibility = 'visible';
-                item.style.transform = 'translateX(0)';
-            }
+        // Ensure all menu items are visible
+        const menuItems = document.querySelectorAll('#menu .menu-list li');
+        menuItems.forEach(item => {
+            item.style.opacity = '1';
+            item.style.visibility = 'visible';
+            item.style.display = 'block';
         });
-        
-        allMenuSections.forEach(section => {
-            if (section.style.opacity !== '1' || section.style.display === 'none') {
-                section.style.opacity = '1';
-                section.style.visibility = 'visible';
-                section.style.display = 'block';
-            }
-        });
-    }, 1000);
+        console.log('Menu items visibility enforced:', menuItems.length, 'items');
+    }, 500);
 });
 
 // Initialize menu language display
