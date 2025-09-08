@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Gayatri Caterers</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/script.js" defer></script>
+</head>
+<body>
+    <header>
+    <div class="header-container">
+        <div class="lang-switcher">
+            <button id="lang-en" class="active">English</button>
+            <button id="lang-te">తెలుగు</button>
+        </div>
+        <h1>Sai Gayatri Caterers</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <div class="dropdown">
+                <a href="#menu" class="dropbtn">Menu</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-submenu">
+                        <span class="menu-folder-en">South Indian</span><span class="menu-folder-te" style="display:none">దక్షిణ భారతీయ</span>
+                        <div class="dropdown-content">
+                            <a href="#menu-south-thali"><span class="menu-item-en">Thali</span><span class="menu-item-te" style="display:none">తాలి</span></a>
+                            <a href="#menu-south-breakfast"><span class="menu-item-en">Breakfast</span><span class="menu-item-te" style="display:none">ఉపాహారం</span></a>
+                            <a href="#menu-south-snacks"><span class="menu-item-en">Snacks</span><span class="menu-item-te" style="display:none">స్నాక్స్</span></a>
+                        </div>
+                    </div>
+                    <div class="dropdown-submenu">
+                        <span class="menu-folder-en">North Indian</span><span class="menu-folder-te" style="display:none">ఉత్తర భారతీయ</span>
+                        <div class="dropdown-content">
+                            <a href="#menu-north-thali"><span class="menu-item-en">Thali</span><span class="menu-item-te" style="display:none">తాలి</span></a>
+                            <a href="#menu-north-breads"><span class="menu-item-en">Breads</span><span class="menu-item-te" style="display:none">రొట్టెలు</span></a>
+                            <a href="#menu-north-curries"><span class="menu-item-en">Curries</span><span class="menu-item-te" style="display:none">కరీస్</span></a>
+                        </div>
+                    </div>
+                    <a href="#menu-chinese"><span class="menu-item-en">Chinese (Veg)</span><span class="menu-item-te" style="display:none">చైనీస్ (వెజ్)</span></a>
+                    <a href="#menu-desserts"><span class="menu-item-en">Desserts & Sweets</span><span class="menu-item-te" style="display:none">డెజర్ట్స్ & స్వీట్స్</span></a>
+                    <a href="#menu-beverages"><span class="menu-item-en">Beverages</span><span class="menu-item-te" style="display:none">పానీయాలు</span></a>
+                </div>
+            </div>
+            <a href="#contact">Contact</a>
+            <a href="#address">Address</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#inquiry">Inquiry</a>
+        </nav>
+    </div>
+</header>
+    <section id="home">
+        <h2>Welcome to Sai Gayatri Caterers</h2>
+        <p>Delicious food, impeccable service, and memorable events. Serving with love and tradition.</p>
+        <a href="#inquiry" class="hero-cta">Book Your Event Today</a>
+    </section>
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item interactive-hover">
+                <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=500&q=80" alt="South Indian Thali with Rice, Sambar, and Vegetables">
+                <div class="gallery-overlay">Traditional South Indian Thali</div>
+            </div>
+            <div class="gallery-item interactive-hover">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" alt="Masala Dosa with Coconut Chutney and Sambar">
+                <div class="gallery-overlay">Crispy Masala Dosa</div>
+            </div>
+            <div class="gallery-item interactive-hover">
+                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=500&q=80" alt="Variety of Indian Sweets and Desserts">
+                <div class="gallery-overlay">Traditional Indian Sweets</div>
+            </div>
+            <div class="gallery-item interactive-hover">
+                <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=500&q=80" alt="Vegetarian Biryani with Raita and Pickles">
+                <div class="gallery-overlay">Aromatic Vegetarian Biryani</div>
+            </div>
+            <div class="gallery-item interactive-hover">
+                <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=500&q=80" alt="Idli and Vada with Sambar and Chutney">
+                <div class="gallery-overlay">Fresh Idli & Vada</div>
+            </div>
+            <div class="gallery-item interactive-hover">
+                <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=500&q=80" alt="Paneer Butter Masala with Naan">
+                <div class="gallery-overlay">Creamy Paneer Butter Masala</div>
+            </div>
+            <div class="gallery-item interactive-hover">
+                <img src="https://images.unsplash.com/photo-1574653339688-b0245649fcce?auto=format&fit=crop&w=500&q=80" alt="Vegetarian Curry Varieties">
+                <div class="gallery-overlay">Authentic Vegetarian Curries</div>
+            </div>
+            <div class="gallery-item interactive-hover">
+                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=80" alt="Wedding Catering Setup with Traditional Decorations">
+                <div class="gallery-overlay">Premium Wedding Catering</div>
+            </div>
+        </div>
+    </section>
+    <section id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-section" id="menu-rice-pulao">
+            <h3><span class="menu-item-en">Rice & Pulao</span><span class="menu-item-te" style="display:none">రైస్ & పులావ్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">White Rice</span><span class="menu-item-te" style="display:none">వైట్ రైస్</span></li>
+                <li><span class="menu-item-en">Nimmakaya Pulihora</span><span class="menu-item-te" style="display:none">నిమ్మకాయ పులిహోర</span></li>
+                <li><span class="menu-item-en">Mamidikaya Pulihora</span><span class="menu-item-te" style="display:none">మామిడికాయ పులిహోర</span></li>
+                <li><span class="menu-item-en">Chintapandu Pulihora</span><span class="menu-item-te" style="display:none">చింతపండు పులిహోర</span></li>
+                <li><span class="menu-item-en">Pindi Pulihora</span><span class="menu-item-te" style="display:none">పిండి పులిహోర</span></li>
+                <li><span class="menu-item-en">Aloo Bath</span><span class="menu-item-te" style="display:none">ఆలూ బాత్</span></li>
+                <li><span class="menu-item-en">Vangi Bath</span><span class="menu-item-te" style="display:none">వాంగి బాత్</span></li>
+                <li><span class="menu-item-en">Gongura Rice</span><span class="menu-item-te" style="display:none">గోంగూర అన్నం</span></li>
+                <li><span class="menu-item-en">Kothimeera Rice</span><span class="menu-item-te" style="display:none">కోతిమీర అన్నం</span></li>
+                <li><span class="menu-item-en">Pudina Rice</span><span class="menu-item-te" style="display:none">పుదీనా అన్నం</span></li>
+                <li><span class="menu-item-en">Methi Pulao</span><span class="menu-item-te" style="display:none">మేతి పులావ్</span></li>
+                <li><span class="menu-item-en">Bagara Rice</span><span class="menu-item-te" style="display:none">బగారా అన్నం</span></li>
+                <li><span class="menu-item-en">Kobbari Rice</span><span class="menu-item-te" style="display:none">కొబ్బరి అన్నం</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-biryani-fried-rice">
+            <h3><span class="menu-item-en">Biryani And Fried Rice</span><span class="menu-item-te" style="display:none">బిర్యానీ మరియు ఫ్రైడ్ రైస్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Veg Biryani</span><span class="menu-item-te" style="display:none">వెజ్ బిర్యానీ</span></li>
+                <li><span class="menu-item-en">Fried Rice</span><span class="menu-item-te" style="display:none">ఫ్రైడ్ రైస్</span></li>
+                <li><span class="menu-item-en">Jeera Rice</span><span class="menu-item-te" style="display:none">జీరా రైస్</span></li>
+                <li><span class="menu-item-en">Paneer Fried Rice</span><span class="menu-item-te" style="display:none">పనీర్ ఫ్రైడ్ రైస్</span></li>
+                <li><span class="menu-item-en">Schezwan Fried Rice</span><span class="menu-item-te" style="display:none">షెజ్వాన్ ఫైర్డ్ రైస్</span></li>
+                <li><span class="menu-item-en">Kaju Fried Rice</span><span class="menu-item-te" style="display:none">కాజు ఫ్రైడ్ రైస్</span></li>
+                <li><span class="menu-item-en">7 Jewel Fried Rice</span><span class="menu-item-te" style="display:none">7 జ్యువెల్ ఫ్రైడ్ రైస్</span></li>
+                <li><span class="menu-item-en">Mushroom Fried Rice</span><span class="menu-item-te" style="display:none">మష్రూమ్ ఫ్రైడ్ రైస్</span></li>
+                <li><span class="menu-item-en">Babycorn Fried Rice</span><span class="menu-item-te" style="display:none">బేబీకార్న్ ఫ్రైడ్ రైస్</span></li>
+                <li><span class="menu-item-en">Burnt Garlic Fried Rice</span><span class="menu-item-te" style="display:none">బర్న్డ్ గార్లిక్ ఫ్రైడ్ రైస్</span></li>
+                <li><span class="menu-item-en">Ginger Fried Rice</span><span class="menu-item-te" style="display:none">అల్లం ఫ్రైడ్ రైస్</span></li>
+                <li><span class="menu-item-en">Mexican Fried Rice</span><span class="menu-item-te" style="display:none">మెక్సికన్ ఫ్రైడ్ రైస్</span></li>
+                <li><span class="menu-item-en">Veg Dum Biryani</span><span class="menu-item-te" style="display:none">వెజ్ దమ్ బిర్యానీ</span></li>
+                <li><span class="menu-item-en">Veg Biryani</span><span class="menu-item-te" style="display:none">వెజ్ బిర్యానీ</span></li>
+                <li><span class="menu-item-en">Paneer Biryani</span><span class="menu-item-te" style="display:none">పనీర్ బిర్యానీ</span></li>
+                <li><span class="menu-item-en">Kaju Paneer Biryani</span><span class="menu-item-te" style="display:none">కాజు పనీర్ బిర్యానీ</span></li>
+                <li><span class="menu-item-en">Mushroom Babycorn Biryani</span><span class="menu-item-te" style="display:none">మష్రూమ్ బేబీకార్న్ బిర్యానీ</span></li>
+                <li><span class="menu-item-en">Dry Fruit Biryani</span><span class="menu-item-te" style="display:none">డ్రై ఫ్రూట్ బిర్యానీ</span></li>
+                <li><span class="menu-item-en">Punjabi Biryani</span><span class="menu-item-te" style="display:none">పంజాబీ బిర్యానీ</span></li>
+                <li><span class="menu-item-en">Nizam Deewana Biryani</span><span class="menu-item-te" style="display:none">నిజాం దీవానా బిర్యానీ</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-pickles-chutneys">
+            <h3><span class="menu-item-en">Pickles And Chutneys</span><span class="menu-item-te" style="display:none">పచ్చళ్లు మరియు చట్నీలు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Mamidikaya Aavakaya</span><span class="menu-item-te" style="display:none">మామిడికాయ ఆవకాయ</span></li>
+                <li><span class="menu-item-en">Dosa Avakaya</span><span class="menu-item-te" style="display:none">దోస ఆవకాయ</span></li>
+                <li><span class="menu-item-en">Gongura Pachchadi</span><span class="menu-item-te" style="display:none">గోంగూర పచ్చడి</span></li>
+                <li><span class="menu-item-en">Mamidikaya Mukkala Pachchadi</span><span class="menu-item-te" style="display:none">మామిడికాయ ముక్కల పచ్చడి</span></li>
+                <li><span class="menu-item-en">Mulakkada Aavakaya</span><span class="menu-item-te" style="display:none">ములక్కాడ ఆవకాయ</span></li>
+                <li><span class="menu-item-en">Gobi Avakaya</span><span class="menu-item-te" style="display:none">గోబీ ఆవకాయ</span></li>
+                <li><span class="menu-item-en">Tomato Pachchadi</span><span class="menu-item-te" style="display:none">టమోటా పచ్చడి</span></li>
+                <li><span class="menu-item-en">Dosakya Kobbari Pachchadi</span><span class="menu-item-te" style="display:none">దోసక్య కొబ్బరి పచ్చడి</span></li>
+                <li><span class="menu-item-en">Dosakaya Chintakaya Pachchadi</span><span class="menu-item-te" style="display:none">దోసకాయ చింతకాయ పచ్చడి</span></li>
+                <li><span class="menu-item-en">Kobbari Pachchadi</span><span class="menu-item-te" style="display:none">కొబ్బరి పచ్చడి</span></li>
+                <li><span class="menu-item-en">Kobbari Nimmakaya</span><span class="menu-item-te" style="display:none">కొబ్బరి నిమ్మకాయ</span></li>
+                <li><span class="menu-item-en">Kobbari Mamidikaya</span><span class="menu-item-te" style="display:none">కొబ్బరి మామిడికాయ</span></li>
+                <li><span class="menu-item-en">Chintakaya</span><span class="menu-item-te" style="display:none">చింతకాయ</span></li>
+                <li><span class="menu-item-en">Chintakaya Kobbari</span><span class="menu-item-te" style="display:none">చింతకాయ కొబ్బరి</span></li>
+                <li><span class="menu-item-en">Keera Perugu</span><span class="menu-item-te" style="display:none">కీర పెరుగు</span></li>
+                <li><span class="menu-item-en">Onion Raita</span><span class="menu-item-te" style="display:none">ఉల్లిపాయ రైతా</span></li>
+                <li><span class="menu-item-en">Boondi Raita</span><span class="menu-item-te" style="display:none">బూందీ  రైతా</span></li>
+                <li><span class="menu-item-en">Sev Raita</span><span class="menu-item-te" style="display:none">సేవ రైతా</span></li>
+                <li><span class="menu-item-en">Keera Raita</span><span class="menu-item-te" style="display:none">కీర రైతా</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-sweets">
+            <h3><span class="menu-item-en">Sweets</span><span class="menu-item-te" style="display:none">స్వీట్లు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Kakinada Kaja</span><span class="menu-item-te" style="display:none">కాకినాడ కాజా</span></li>
+                <li><span class="menu-item-en">Madatha Kaja</span><span class="menu-item-te" style="display:none">మదత కాజ</span></li>
+                <li><span class="menu-item-en">Baadusha</span><span class="menu-item-te" style="display:none">బాదుషా</span></li>
+                <li><span class="menu-item-en">Kova Kajjikaya</span><span class="menu-item-te" style="display:none">కోవా కజ్జికాయ</span></li>
+                <li><span class="menu-item-en">Jilebhi</span><span class="menu-item-te" style="display:none">జిలేభి</span></li>
+                <li><span class="menu-item-en">Jaangri</span><span class="menu-item-te" style="display:none">జాంగ్రీ</span></li>
+                <li><span class="menu-item-en">Mysore Paak</span><span class="menu-item-te" style="display:none">మైసూర్ పాక్</span></li>
+                <li><span class="menu-item-en">Milk Mysore Paak</span><span class="menu-item-te" style="display:none">మిల్క్ మైసూర్ పాక్</span></li>
+                <li><span class="menu-item-en">Laddoo</span><span class="menu-item-te" style="display:none">లడ్డూ</span></li>
+                <li><span class="menu-item-en">Carrot Halwa</span><span class="menu-item-te" style="display:none">క్యారెట్ హల్వా</span></li>
+                <li><span class="menu-item-en">Doble Ka Meetha</span><span class="menu-item-te" style="display:none">డబల్ కా మీఠా</span></li>
+                <li><span class="menu-item-en">Bobbatlu</span><span class="menu-item-te" style="display:none">బొబ్బట్లు</span></li>
+                <li><span class="menu-item-en">Boorelu</span><span class="menu-item-te" style="display:none">బూరెలు</span></li>
+                <li><span class="menu-item-en">Kala Jaamoon</span><span class="menu-item-te" style="display:none">కాలా జామూన్</span></li>
+                <li><span class="menu-item-en">Gulab Jamoon</span><span class="menu-item-te" style="display:none">గులాబ్ జామూన్</span></li>
+                <li><span class="menu-item-en">Baasundi</span><span class="menu-item-te" style="display:none">బాసుండి</span></li>
+                <li><span class="menu-item-en">Rasmalai</span><span class="menu-item-te" style="display:none">రస్మలై</span></li>
+                <li><span class="menu-item-en">Bandar Laddu</span><span class="menu-item-te" style="display:none">బందర్ లడ్డు</span></li>
+                <li><span class="menu-item-en">Mothichoor Laddu</span><span class="menu-item-te" style="display:none">మోతీచూర్ లడ్డు</span></li>
+                <li><span class="menu-item-en">Ariselu</span><span class="menu-item-te" style="display:none">అరిసెలు</span></li>
+                <li><span class="menu-item-en">Poornam Boorelu</span><span class="menu-item-te" style="display:none">పూర్ణం బూరెలు</span></li>
+                <li><span class="menu-item-en">Poli Poornam Boorelu</span><span class="menu-item-te" style="display:none">పోలీ పూర్ణం బూరెలు</span></li>
+                <li><span class="menu-item-en">Ravva Kesari</span><span class="menu-item-te" style="display:none">రవ్వ కేసరి</span></li>
+                <li><span class="menu-item-en">Pineapple Kesari</span><span class="menu-item-te" style="display:none">పైనాపిల్ కేసరి</span></li>
+                <li><span class="menu-item-en">Paramannam</span><span class="menu-item-te" style="display:none">పరమాన్నం</span></li>
+                <li><span class="menu-item-en">Chekkara Pongali</span><span class="menu-item-te" style="display:none">చెక్కర పొంగలి</span></li>
+                <li><span class="menu-item-en">Gajar Halwa</span><span class="menu-item-te" style="display:none">గజర్ హల్వా</span></li>
+                <li><span class="menu-item-en">Kaddu Halwa</span><span class="menu-item-te" style="display:none">కద్దు హల్వా</span></li>
+            </ul>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Apricot Delight</span><span class="menu-item-te" style="display:none">ఆప్రికాట్ డిలైట్</span></li>
+                <li><span class="menu-item-en">Triple Pudding</span><span class="menu-item-te" style="display:none">ట్రిపుల్ పుడ్డింగ్</span></li>
+                <li><span class="menu-item-en">Kasmir Rabdi</span><span class="menu-item-te" style="display:none">కశ్మీర్ రబ్దీ</span></li>
+                <li><span class="menu-item-en">Cream Fruit Delight</span><span class="menu-item-te" style="display:none">క్రీమ్ ఫ్రూట్ డిలైట్</span></li>
+                <li><span class="menu-item-en">Seethaphal Rabdi</span><span class="menu-item-te" style="display:none">సీతాఫల్ రబ్దీ</span></li>
+                <li><span class="menu-item-en">Dryfruit Rabdi</span><span class="menu-item-te" style="display:none">డ్రైఫ్రూట్స్ పుడ్డింగ్</span></li>
+                <li><span class="menu-item-en">Snow White Fruit</span><span class="menu-item-te" style="display:none">స్నో వైట్ ఫ్రూట్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-breakfast-tiffins">
+            <h3><span class="menu-item-en">Breakfast & Tiffins</span><span class="menu-item-te" style="display:none">అల్పాహారం & టిఫిన్లు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Idli</span><span class="menu-item-te" style="display:none">ఇడ్లీ</span></li>
+                <li><span class="menu-item-en">Vada</span><span class="menu-item-te" style="display:none">వడ</span></li>
+                <li><span class="menu-item-en">Tomato Baath</span><span class="menu-item-te" style="display:none">టమోటా బాత్</span></li>
+                <li><span class="menu-item-en">Vegetable Baath</span><span class="menu-item-te" style="display:none">కూరగాయల బాత్</span></li>
+                <li><span class="menu-item-en">Mysore Bajji</span><span class="menu-item-te" style="display:none">మైసూర్ బజ్జీ</span></li>
+                <li><span class="menu-item-en">Poori</span><span class="menu-item-te" style="display:none">పూరి</span></li>
+                <li><span class="menu-item-en">Katte Pongali</span><span class="menu-item-te" style="display:none">కట్టె పొంగలి</span></li>
+                <li><span class="menu-item-en">Upma</span><span class="menu-item-te" style="display:none">ఉప్మా</span></li>
+                <li><span class="menu-item-en">Pesarattu</span><span class="menu-item-te" style="display:none">పెసరట్టు</span></li>
+                <li><span class="menu-item-en">Plain Dosa</span><span class="menu-item-te" style="display:none">సాదా దోసె</span></li>
+                <li><span class="menu-item-en">Onion Dosa</span><span class="menu-item-te" style="display:none">ఉల్లిపాయ దోసె</span></li>
+                <li><span class="menu-item-en">Masala Dosa</span><span class="menu-item-te" style="display:none">మసాలా దోస</span></li>
+                <li><span class="menu-item-en">Cheese Dosa</span><span class="menu-item-te" style="display:none">చీజ్  దోస</span></li>
+                <li><span class="menu-item-en">Uthappam</span><span class="menu-item-te" style="display:none">ఉతప్పం</span></li>
+                <li><span class="menu-item-en">Paneer Dosa</span><span class="menu-item-te" style="display:none">పనీర్ దోస</span></li>
+                <li><span class="menu-item-en">Allam Chutney</span><span class="menu-item-te" style="display:none">అల్లం చట్నీ</span></li>
+                <li><span class="menu-item-en">Kobbari Chutney</span><span class="menu-item-te" style="display:none">కొబ్బరి చట్నీ</span></li>
+                <li><span class="menu-item-en">Putnala Chutney</span><span class="menu-item-te" style="display:none">పుట్నాల చట్నీ</span></li>
+                <li><span class="menu-item-en">Pallila Chutney</span><span class="menu-item-te" style="display:none">పల్లీల చట్నీ</span></li>
+                <li><span class="menu-item-en">Karam Podi</span><span class="menu-item-te" style="display:none">కారం పొడి</span></li>
+                <li><span class="menu-item-en">Sambhar</span><span class="menu-item-te" style="display:none">సంభార్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-hot-beverages">
+            <h3><span class="menu-item-en">Hot Beverages</span><span class="menu-item-te" style="display:none">వేడి పానీయాలు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Filter Coffee</span><span class="menu-item-te" style="display:none">ఫిల్టర్ కాఫీ</span></li>
+                <li><span class="menu-item-en">Bru Coffee</span><span class="menu-item-te" style="display:none">బ్రూ కాఫీ</span></li>
+                <li><span class="menu-item-en">Cappuccino</span><span class="menu-item-te" style="display:none">కాపుచినో</span></li>
+                <li><span class="menu-item-en">Flat White</span><span class="menu-item-te" style="display:none">ఫ్లాట్ వైట్</span></li>
+                <li><span class="menu-item-en">Caffè Americano</span><span class="menu-item-te" style="display:none">కాఫీ అమెరికానో</span></li>
+                <li><span class="menu-item-en">Caffè Macchiato</span><span class="menu-item-te" style="display:none">కాఫీ మకియాటో</span></li>
+                <li><span class="menu-item-en">Caffè Mocha</span><span class="menu-item-te" style="display:none">కాఫీ మోచా</span></li>
+                <li><span class="menu-item-en">Hot Chocolate</span><span class="menu-item-te" style="display:none">వేడి చాక్లెట్</span></li>
+                <li><span class="menu-item-en">Tea</span><span class="menu-item-te" style="display:none">టీ</span></li>
+                <li><span class="menu-item-en">Milk</span><span class="menu-item-te" style="display:none">పాలు</span></li>
+                <li><span class="menu-item-en">Bornvita</span><span class="menu-item-te" style="display:none">బోర్న్ విటా</span></li>
+                <li><span class="menu-item-en">Boost</span><span class="menu-item-te" style="display:none">బూస్ట్</span></li>
+                <li><span class="menu-item-en">Horlicks</span><span class="menu-item-te" style="display:none">హార్లిక్స్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-paan">
+            <h3><span class="menu-item-en">Paan</span><span class="menu-item-te" style="display:none">పాన్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Saada Paan</span><span class="menu-item-te" style="display:none">సాదా పాన్</span></li>
+                <li><span class="menu-item-en">Meetha Paan</span><span class="menu-item-te" style="display:none">మీతా పాన్</span></li>
+                <li><span class="menu-item-en">Calcutta Paan</span><span class="menu-item-te" style="display:none">కలకత్తా పాన్</span></li>
+                <li><span class="menu-item-en">Banarasi Paan</span><span class="menu-item-te" style="display:none">బనారసి పాన్</span></li>
+                <li><span class="menu-item-en">Ice Paan</span><span class="menu-item-te" style="display:none">మంచు పాన్</span></li>
+                <li><span class="menu-item-en">Fire Paan</span><span class="menu-item-te" style="display:none">అగ్ని పాన్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-welcome-drinks">
+            <h3><span class="menu-item-en">Welcome Drinks</span><span class="menu-item-te" style="display:none">వెల్కమ్ డ్రింక్స్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Seasonal Fruit Juices</span><span class="menu-item-te" style="display:none">సీజనల్ ఫ్రూట్ జ్యూస్‌లు</span></li>
+                <li><span class="menu-item-en">Badam Milk (Home Made)</span><span class="menu-item-te" style="display:none">బాదం పాలు (హోమ్ మేడ్)</span></li>
+                <li><span class="menu-item-en">Fruit Punch</span><span class="menu-item-te" style="display:none">ఫ్రూట్ పంచ్</span></li>
+                <li><span class="menu-item-en">Fruit Salad</span><span class="menu-item-te" style="display:none">ఫ్రూట్ సలాడ్</span></li>
+                <li><span class="menu-item-en">Fruit Chat</span><span class="menu-item-te" style="display:none">ఫ్రూట్ చాట్</span></li>
+                <li><span class="menu-item-en">Thumps Up</span><span class="menu-item-te" style="display:none">థంబ్స్ అప్</span></li>
+                <li><span class="menu-item-en">Pepsi</span><span class="menu-item-te" style="display:none">పెప్సీ</span></li>
+                <li><span class="menu-item-en">Coke</span><span class="menu-item-te" style="display:none">కోక్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-crispy-fritters">
+            <h3><span class="menu-item-en">Crispy Fritters</span><span class="menu-item-te" style="display:none">క్రిస్పీ ఫ్రిట్టర్స్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Mirchi Bajji</span><span class="menu-item-te" style="display:none">మిర్చి బజ్జీ</span></li>
+                <li><span class="menu-item-en">Aratikaya Bajji</span><span class="menu-item-te" style="display:none">అరటికాయ బజ్జీ</span></li>
+                <li><span class="menu-item-en">Aloo Bajji</span><span class="menu-item-te" style="display:none">ఆలూ బజ్జీ</span></li>
+                <li><span class="menu-item-en">Tamalapaaku Bajji</span><span class="menu-item-te" style="display:none">తమలపాకు బజ్జీ</span></li>
+                <li><span class="menu-item-en">Vankaya Bajji</span><span class="menu-item-te" style="display:none">వంకాయ బజ్జీ</span></li>
+                <li><span class="menu-item-en">Masala Vada</span><span class="menu-item-te" style="display:none">మసాలా వడ</span></li>
+                <li><span class="menu-item-en">Kaaram Poosa</span><span class="menu-item-te" style="display:none">కారం పూస</span></li>
+                <li><span class="menu-item-en">Samosa</span><span class="menu-item-te" style="display:none">సమోసా</span></li>
+                <li><span class="menu-item-en">Kaaram Boondhi</span><span class="menu-item-te" style="display:none">కారం బూంది</span></li>
+                <li><span class="menu-item-en">Pakoda (Onion/Palak)</span><span class="menu-item-te" style="display:none">పకోడీ (ఉల్లిపాయ/పాలక్)</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-breads-rotis">
+            <h3><span class="menu-item-en">Breads And Rotis</span><span class="menu-item-te" style="display:none">రోటీలు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Rumali Roti</span><span class="menu-item-te" style="display:none">రుమాలి రోటీ</span></li>
+                <li><span class="menu-item-en">Taftan Roti</span><span class="menu-item-te" style="display:none">తఫ్తాన్ రోటీ</span></li>
+                <li><span class="menu-item-en">Afgani Roti</span><span class="menu-item-te" style="display:none">అఫ్గానీ రోటీ</span></li>
+                <li><span class="menu-item-en">Dry Fruit Roti</span><span class="menu-item-te" style="display:none">డ్రై ఫ్రూట్ రోటీ</span></li>
+                <li><span class="menu-item-en">Kesar Roti</span><span class="menu-item-te" style="display:none">కేసర్ రోటీ</span></li>
+                <li><span class="menu-item-en">Poori</span><span class="menu-item-te" style="display:none">పూరి</span></li>
+                <li><span class="menu-item-en">Naan</span><span class="menu-item-te" style="display:none">నాన్</span></li>
+                <li><span class="menu-item-en">Butter Naan</span><span class="menu-item-te" style="display:none">వెన్న నాన్</span></li>
+                <li><span class="menu-item-en">Garlic Naan</span><span class="menu-item-te" style="display:none">వెల్లుల్లి నాన్</span></li>
+                <li><span class="menu-item-en">Til Naan</span><span class="menu-item-te" style="display:none">టిల్ నాన్</span></li>
+                <li><span class="menu-item-en">Peshwar Nan</span><span class="menu-item-te" style="display:none">పేశ్వర్ నాన్</span></li>
+                <li><span class="menu-item-en">Paneer Kulcha</span><span class="menu-item-te" style="display:none">పనీర్ కుల్చా</span></li>
+                <li><span class="menu-item-en">Aloo Kulcha</span><span class="menu-item-te" style="display:none">ఆలూ కుల్చా</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-soups">
+            <h3><span class="menu-item-en">Soups</span><span class="menu-item-te" style="display:none">సూప్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Sweet Corn Soup</span><span class="menu-item-te" style="display:none">స్వీట్ కార్న్ సూప్</span></li>
+                <li><span class="menu-item-en">Tamatoo Soup</span><span class="menu-item-te" style="display:none">టమాటా సూప్</span></li>
+                <li><span class="menu-item-en">Hot And Sour Soup</span><span class="menu-item-te" style="display:none">హాట్ అండ్ సోర్ సూప్</span></li>
+                <li><span class="menu-item-en">Manchoo Soup</span><span class="menu-item-te" style="display:none">మంచో సూప్</span></li>
+                <li><span class="menu-item-en">Mashroom Soup</span><span class="menu-item-te" style="display:none">మష్రూమ్ సూప్</span></li>
+                <li><span class="menu-item-en">Vegetables Soup</span><span class="menu-item-te" style="display:none">వెజిటబుల్ సూప్</span></li>
+                <li><span class="menu-item-en">Clear Soup</span><span class="menu-item-te" style="display:none">క్లియర్ సూప్</span></li>
+                <li><span class="menu-item-en">Lemon Coriander Soup</span><span class="menu-item-te" style="display:none">లెమన్ కొరియాండర్ సూప్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-italian">
+            <h3><span class="menu-item-en">Italian</span><span class="menu-item-te" style="display:none">ఇటాలియన్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Italian Pizza</span><span class="menu-item-te" style="display:none">ఇటాలియన్ పిజ్జా</span></li>
+                <li><span class="menu-item-en">Mini Pizza</span><span class="menu-item-te" style="display:none">మినీ పిజ్జా</span></li>
+                <li><span class="menu-item-en">Thin Crust Pizza</span><span class="menu-item-te" style="display:none">థిన్ క్రస్ట్ పిజ్జా</span></li>
+                <li><span class="menu-item-en">BBQ Pizza</span><span class="menu-item-te" style="display:none">బిబిక్యూ పిజ్జా</span></li>
+                <li><span class="menu-item-en">Mini Burger</span><span class="menu-item-te" style="display:none">మినీ బర్గర్</span></li>
+                <li><span class="menu-item-en">Veg Hot Dog</span><span class="menu-item-te" style="display:none">వెజ్ హాట్ డాగ్</span></li>
+                <li><span class="menu-item-en">Stuffed Rolls</span><span class="menu-item-te" style="display:none">స్టఫ్డ్ రోల్స్</span></li>
+                <li><span class="menu-item-en">Italian Pasta (Red/White/Pink Sauces)</span><span class="menu-item-te" style="display:none">ఇటాలియన్ పాస్తా (వైట్/ రెడ్ / పింక్ సాస్)</span></li>
+                <li><span class="menu-item-en">Veg Grilled Sandwich</span><span class="menu-item-te" style="display:none">గ్రిల్డ్ శాండ్విచ్</span></li>
+                <li><span class="menu-item-en">Cheese Grilled Sandwich</span><span class="menu-item-te" style="display:none">చీస్ గ్రిల్డ్ శాండ్విచ్</span></li>
+                <li><span class="menu-item-en">Cheese Garlic Bread</span><span class="menu-item-te" style="display:none">చీస్ గార్లిక్ బ్రెడ్</span></li>
+                <li><span class="menu-item-en">Masala Bread</span><span class="menu-item-te" style="display:none">మసాలా బ్రెడ్</span></li>
+            </ul>
+        </div>
+        </div>
+        <div class="menu-section" id="menu-chaat">
+            <h3><span class="menu-item-en">Chaat</span><span class="menu-item-te" style="display:none">చాట్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Paani Puri</span><span class="menu-item-te" style="display:none">పానీ పూరి</span></li>
+                <li><span class="menu-item-en">Dahi Papad</span><span class="menu-item-te" style="display:none">దహీ పాపడ్</span></li>
+                <li><span class="menu-item-en">Samosa Chaat</span><span class="menu-item-te" style="display:none">సమోసా చాట్</span></li>
+                <li><span class="menu-item-en">Cutlet Chaat</span><span class="menu-item-te" style="display:none">కట్లెట్ చాట్</span></li>
+                <li><span class="menu-item-en">Dahi Puri</span><span class="menu-item-te" style="display:none">దహీ పూరి</span></li>
+                <li><span class="menu-item-en">Paav Bhaaji</span><span class="menu-item-te" style="display:none">పావ్ భాజీ</span></li>
+                <li><span class="menu-item-en">Bhel Puri</span><span class="menu-item-te" style="display:none">భేల్ పూరి</span></li>
+                <li><span class="menu-item-en">Mirchi Chaat</span><span class="menu-item-te" style="display:none">మిర్చి చాట్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-finger-foods-starters">
+            <h3><span class="menu-item-en">Finger Foods & Starters</span><span class="menu-item-te" style="display:none">స్టార్టర్స్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Cheese Balls</span><span class="menu-item-te" style="display:none">చీజ్ బాల్స్</span></li>
+                <li><span class="menu-item-en">Babycorn Sticks</span><span class="menu-item-te" style="display:none">బేబీ కార్న్ స్టిక్</span></li>
+                <li><span class="menu-item-en">Paneer Tikka</span><span class="menu-item-te" style="display:none">గోల్డెన్ టిక్కా</span></li>
+                <li><span class="menu-item-en">Spinach Cheese Rolls</span><span class="menu-item-te" style="display:none">స్పినాచ్ చీజ్ రోల్</span></li>
+                <li><span class="menu-item-en">Paneer Kurkure</span><span class="menu-item-te" style="display:none">పన్నీర్ కుర్ కురే</span></li>
+                <li><span class="menu-item-en">Corn Cheese Bullets</span><span class="menu-item-te" style="display:none">కార్న్ చీస్ బులెట్</span></li>
+                <li><span class="menu-item-en">Paneer Papad</span><span class="menu-item-te" style="display:none">పన్నీర్ పాపడ్</span></li>
+                <li><span class="menu-item-en">Veg 65</span><span class="menu-item-te" style="display:none">వెజ్ 65</span></li>
+                <li><span class="menu-item-en">Gobi 65</span><span class="menu-item-te" style="display:none">గోబీ 65</span></li>
+                <li><span class="menu-item-en">Veg Manchuria</span><span class="menu-item-te" style="display:none">వెజ్ మంచూరియా</span></li>
+                <li><span class="menu-item-en">Veg Bullets</span><span class="menu-item-te" style="display:none">వెజ్ బులెట్</span></li>
+                <li><span class="menu-item-en">Schezwan Manchuria</span><span class="menu-item-te" style="display:none">షెజ్వాన్ మంచూరియా</span></li>
+                <li><span class="menu-item-en">Tim Tom Manchuria</span><span class="menu-item-te" style="display:none">టిమ్ టామ్ మంచూరియా</span></li>
+                <li><span class="menu-item-en">Tawa Delight</span><span class="menu-item-te" style="display:none">తవా డిలైట్</span></li>
+                <li><span class="menu-item-en">Chilly Baby Corn</span><span class="menu-item-te" style="display:none">చిల్లీ బేబీ కార్న్</span></li>
+                <li><span class="menu-item-en">Thai Noodles</span><span class="menu-item-te" style="display:none">థాయ్ నూడుల్స్</span></li>
+                <li><span class="menu-item-en">Mangolian Noodles</span><span class="menu-item-te" style="display:none">మాంగోలియన్ నూడుల్స్</span></li>
+                <li><span class="menu-item-en">Arabic Paneer</span><span class="menu-item-te" style="display:none">అరబిక్ పనీర్</span></li>
+                <li><span class="menu-item-en">Prem Cheese Onion</span><span class="menu-item-te" style="display:none">ప్రేమ్ చీజ్ ఆనియన్</span></li>
+                <li><span class="menu-item-en">Veg Dumplings</span><span class="menu-item-te" style="display:none">వెజ్ డంప్లింగ్స్</span></li>
+                <li><span class="menu-item-en">Spring Rolls</span><span class="menu-item-te" style="display:none">స్ప్రింగ్ రోల్స్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-north-indian-specials">
+            <h3><span class="menu-item-en">North Indian</span><span class="menu-item-te" style="display:none">నార్త్ ఇండియన్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Paneer Butter Masala</span><span class="menu-item-te" style="display:none">పనీర్ బటర్ మసాలా</span></li>
+                <li><span class="menu-item-en">Paneer Matar</span><span class="menu-item-te" style="display:none">పనీర్ మటర్</span></li>
+                <li><span class="menu-item-en">Palak Paneer</span><span class="menu-item-te" style="display:none">పాలక్ పనీర్</span></li>
+                <li><span class="menu-item-en">Aloo Kurma</span><span class="menu-item-te" style="display:none">ఆలూ కుర్మా</span></li>
+                <li><span class="menu-item-en">Chole Masala</span><span class="menu-item-te" style="display:none">చోలే మసాలా</span></li>
+                <li><span class="menu-item-en">Bagara Vankaya</span><span class="menu-item-te" style="display:none">బగార వంకాయ</span></li>
+                <li><span class="menu-item-en">Capsicum Kurma</span><span class="menu-item-te" style="display:none">క్యాప్సికమ్ కుర్మా</span></li>
+                <li><span class="menu-item-en">Green Peas Kurma</span><span class="menu-item-te" style="display:none">గ్రీన్ పీస్ కుర్మా</span></li>
+                <li><span class="menu-item-en">Navratan Kurma</span><span class="menu-item-te" style="display:none">నవరతన్ కూర్మ</span></li>
+                <li><span class="menu-item-en">Tomato Kurma</span><span class="menu-item-te" style="display:none">టొమాటో కుర్మా</span></li>
+                <li><span class="menu-item-en">Gobi Kurma</span><span class="menu-item-te" style="display:none">గోబీ కూర్మ</span></li>
+                <li><span class="menu-item-en">Vegetable Kofta</span><span class="menu-item-te" style="display:none">వెజిటబుల్  కోఫ్తా</span></li>
+                <li><span class="menu-item-en">Malai Kofta</span><span class="menu-item-te" style="display:none">మలై కోఫ్తా</span></li>
+                <li><span class="menu-item-en">Mirchi Ka Salan</span><span class="menu-item-te" style="display:none">మిర్చి కా సలాన్</span></li>
+                <li><span class="menu-item-en">Paneer Tikka Masala</span><span class="menu-item-te" style="display:none">పనీర్ టిక్కా మసాలా</span></li>
+                <li><span class="menu-item-en">Veg Khandari</span><span class="menu-item-te" style="display:none">వెజ్ కందారి</span></li>
+                <li><span class="menu-item-en">Paneer Do Pyaza</span><span class="menu-item-te" style="display:none">పనీర్ దో ప్యాజా</span></li>
+                <li><span class="menu-item-en">Kadai Paneer</span><span class="menu-item-te" style="display:none">కడాయి పనీర్</span></li>
+                <li><span class="menu-item-en">Punjabi Paneer Patiala</span><span class="menu-item-te" style="display:none">పంజాబీ పనీర్ పాటియాలా</span></li>
+                <li><span class="menu-item-en">Dum Aloo With Cheese</span><span class="menu-item-te" style="display:none">దమ్ ఆలూ  (చీస్)</span></li>
+                <li><span class="menu-item-en">Kashmiri Delight</span><span class="menu-item-te" style="display:none">కాశ్మీరీ ఆనందం</span></li>
+                <li><span class="menu-item-en">Methi Chaman</span><span class="menu-item-te" style="display:none">మేతి చమన్</span></li>
+                <li><span class="menu-item-en">Veg Continental</span><span class="menu-item-te" style="display:none">వెజ్ కాంటినెంటల్</span></li>
+                <li><span class="menu-item-en">Ginger Mushroom</span><span class="menu-item-te" style="display:none">జింజర్ మష్రూమ్</span></li>
+                <li><span class="menu-item-en">Mushroom Matar</span><span class="menu-item-te" style="display:none">మష్రూమ్ మేటర్</span></li>
+                <li><span class="menu-item-en">Mushroom Butter Masala</span><span class="menu-item-te" style="display:none">మష్రూమ్ బటర్ మసాలా</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-rasam-collection">
+            <h3><span class="menu-item-en">The Rasam Collection</span><span class="menu-item-te" style="display:none">రసం ప్రత్యేకతలు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Vegetable Sambhar</span><span class="menu-item-te" style="display:none">కూరగాయల సాంబార్</span></li>
+                <li><span class="menu-item-en">Arachuvitta Sambhar</span><span class="menu-item-te" style="display:none">అరచువిట్ట సంభార్</span></li>
+                <li><span class="menu-item-en">Pappu Pulusu</span><span class="menu-item-te" style="display:none">పప్పు పులుసు</span></li>
+                <li><span class="menu-item-en">Tomato Rasam</span><span class="menu-item-te" style="display:none">టొమాటో రసం</span></li>
+                <li><span class="menu-item-en">Garlic Pepper Rasam</span><span class="menu-item-te" style="display:none">వెల్లుల్లి మిరియాలు రసం</span></li>
+                <li><span class="menu-item-en">Majjiga Pulusu</span><span class="menu-item-te" style="display:none">మజ్జిగ పులుసు</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-vepullu">
+            <h3><span class="menu-item-en">Vepullu</span><span class="menu-item-te" style="display:none">వేపుడ్లు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Bendakaya palli / kaju</span><span class="menu-item-te" style="display:none">బెండకాయ పల్లి / కాజు</span></li>
+                <li><span class="menu-item-en">Dondakaya palli / kaju</span><span class="menu-item-te" style="display:none">దొండకాయ పల్లి / కాజు</span></li>
+                <li><span class="menu-item-en">Aloo</span><span class="menu-item-te" style="display:none">ఆలూ</span></li>
+                <li><span class="menu-item-en">Vankaya</span><span class="menu-item-te" style="display:none">వంకాయ</span></li>
+                <li><span class="menu-item-en">Chemagadda</span><span class="menu-item-te" style="display:none">చేమగడ్డ</span></li>
+                <li><span class="menu-item-en">Kakarakaya</span><span class="menu-item-te" style="display:none">కాకరకాయ</span></li>
+                <li><span class="menu-item-en">Aratikaya</span><span class="menu-item-te" style="display:none">అరటికాయ</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-aava-kooralu">
+            <h3><span class="menu-item-en">Aava Kooralu</span><span class="menu-item-te" style="display:none">ఆవ కూరలు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">kanda bachchali</span><span class="menu-item-te" style="display:none">కంద బచ్చలి</span></li>
+                <li><span class="menu-item-en">aratikaya aava koora</span><span class="menu-item-te" style="display:none">అరటికాయ ఆవ కూర</span></li>
+                <li><span class="menu-item-en">panasapottu aava</span><span class="menu-item-te" style="display:none">పనసపొట్టు ఆవ</span></li>
+                <li><span class="menu-item-en">cabbage aava</span><span class="menu-item-te" style="display:none">క్యాబేజీ ఆవకూర</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-saada-kuralu">
+            <h3><span class="menu-item-en">Saada Kuralu</span><span class="menu-item-te" style="display:none">సాదా కూరలు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">vankaya karam koora</span><span class="menu-item-te" style="display:none">వంకాయ కారం కూర</span></li>
+                <li><span class="menu-item-en">vankaya allam mirchi koora</span><span class="menu-item-te" style="display:none">వంకాయ అల్లం మిర్చి కూర</span></li>
+                <li><span class="menu-item-en">vankaya kothimeera koora</span><span class="menu-item-te" style="display:none">వంకాయ కొత్తిమీర కూర</span></li>
+                <li><span class="menu-item-en">vankaya jeedipappu</span><span class="menu-item-te" style="display:none">వంకాయ జీడిపప్పు</span></li>
+                <li><span class="menu-item-en">vankaya ulli mudda</span><span class="menu-item-te" style="display:none">వంకాయ ఉల్లి ముద్ద</span></li>
+                <li><span class="menu-item-en">dondakaya karampetti koora</span><span class="menu-item-te" style="display:none">దొండకాయ కారంపెట్టి కూర</span></li>
+                <li><span class="menu-item-en">aratikaya koora</span><span class="menu-item-te" style="display:none">అరటికాయ కూర</span></li>
+                <li><span class="menu-item-en">aratikaya koora</span><span class="menu-item-te" style="display:none">అరటికాయ కూర</span></li>
+                <li><span class="menu-item-en">aratikaya allam mirchi koora</span><span class="menu-item-te" style="display:none">అరటికాయ అల్లం మిర్చి కూర</span></li>
+                <li><span class="menu-item-en">aratikaya nimmarasam koora</span><span class="menu-item-te" style="display:none">అరటికాయ నిమ్మరసం కూర</span></li>
+                <li><span class="menu-item-en">kanda bachchali</span><span class="menu-item-te" style="display:none">కంద బచ్చలి</span></li>
+                <li><span class="menu-item-en">kanda bachchali nimmarasam</span><span class="menu-item-te" style="display:none">కంద బచ్చలి నిమ్మరసం</span></li>
+                <li><span class="menu-item-en">panasapottu (allam mirchi)</span><span class="menu-item-te" style="display:none">పనసపొట్టు (అల్లం మిర్చి)</span></li>
+                <li><span class="menu-item-en">panasapottu jeedipappu</span><span class="menu-item-te" style="display:none">పనసపొట్టు జీడిపప్పు</span></li>
+                <li><span class="menu-item-en">carrot kobbari</span><span class="menu-item-te" style="display:none">క్యారెట్ కొబ్బరి</span></li>
+                <li><span class="menu-item-en">beans kobbari</span><span class="menu-item-te" style="display:none">బీన్స్ కొబ్బరి</span></li>
+                <li><span class="menu-item-en">beetroot kobbari</span><span class="menu-item-te" style="display:none">బీట్‌రూట్ కొబ్బరి</span></li>
+                <li><span class="menu-item-en">aloo allam mirchi</span><span class="menu-item-te" style="display:none">ఆలూ అల్లం మిర్చి</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-classic-dals">
+            <h3><span class="menu-item-en">Classic Dals</span><span class="menu-item-te" style="display:none">పప్పు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Mamidikaya pappu</span><span class="menu-item-te" style="display:none">మామిడికాయ పప్పు</span></li>
+                <li><span class="menu-item-en">Tomato pappu</span><span class="menu-item-te" style="display:none">టొమాటో పప్పు</span></li>
+                <li><span class="menu-item-en">Dosakaya pappu</span><span class="menu-item-te" style="display:none">దోసకాయ పప్పు</span></li>
+                <li><span class="menu-item-en">Palakoora pappu</span><span class="menu-item-te" style="display:none">పాలకూర పప్పు</span></li>
+                <li><span class="menu-item-en">Sorakaya pappu</span><span class="menu-item-te" style="display:none">సొరకాయ పప్పు</span></li>
+                <li><span class="menu-item-en">Chukkakura pappu</span><span class="menu-item-te" style="display:none">చుక్కకూర పప్పు</span></li>
+                <li><span class="menu-item-en">Mudda pappu</span><span class="menu-item-te" style="display:none">ముద్ద పప్పు</span></li>
+                <li><span class="menu-item-en">Nimmakaya pappu</span><span class="menu-item-te" style="display:none">నిమ్మకాయ పప్పు</span></li>
+                <li><span class="menu-item-en">Chinthakaya pappu</span><span class="menu-item-te" style="display:none">చింతకాయ పప్పు</span></li>
+                <li><span class="menu-item-en">Chintachiguru pappu (seasonal)</span><span class="menu-item-te" style="display:none">చింతచిగురు పప్పు (సీజనల్)</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-south-thali">
+            <h3><span class="menu-item-en">South Indian Thali</span><span class="menu-item-te" style="display:none">దక్షిణ భారతీయ తాలి</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Rice, Sambar, Rasam, Dal, Curd, Papad, Pickle, Veg Curry, Fry, Sweet</span><span class="menu-item-te" style="display:none">అన్నం, సాంబార్, రసం, పప్పు, పెరుగు, అప్పడాలు, ఊరగాయ, కూర, వేపుడు, స్వీట్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-south-breakfast">
+            <h3><span class="menu-item-en">South Indian Breakfast</span><span class="menu-item-te" style="display:none">దక్షిణ భారతీయ ఉపాహారం</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Idli, Dosa, Vada, Upma, Pongal, Poori, Chutneys</span><span class="menu-item-te" style="display:none">ఇడ్లీ, దోస, వడ, ఉప్మా, పొంగల్, పూరి, చట్నీలు</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-south-snacks">
+            <h3><span class="menu-item-en">South Indian Snacks</span><span class="menu-item-te" style="display:none">దక్షిణ భారతీయ స్నాక్స్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Bonda, Pakoda, Bajji, Murukku, Samosa</span><span class="menu-item-te" style="display:none">బొండా, పకోడా, బజ్జి, మురుక్కు, సమోసా</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-north-thali">
+            <h3><span class="menu-item-en">North Indian Thali</span><span class="menu-item-te" style="display:none">ఉత్తర భారతీయ తాలి</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Roti, Rice, Dal, Paneer Curry, Mixed Veg Curry, Raita, Sweet</span><span class="menu-item-te" style="display:none">రొట్టి, అన్నం, పప్పు, పనీర్ కూర, మిక్స్ వెజ్ కూర, రాయితా, స్వీట్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-north-breads">
+            <h3><span class="menu-item-en">North Indian Breads</span><span class="menu-item-te" style="display:none">ఉత్తర భారతీయ రొట్టెలు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Roti, Naan, Paratha, Kulcha, Missi Roti</span><span class="menu-item-te" style="display:none">రొట్టి, నాన్, పరాథా, కుల్చా, మిస్సి రొట్టి</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-north-curries">
+            <h3><span class="menu-item-en">North Indian Curries</span><span class="menu-item-te" style="display:none">ఉత్తర భారతీయ కరీస్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Paneer Butter Masala, Kadai Veg, Dal Makhani, Chole, Rajma</span><span class="menu-item-te" style="display:none">పనీర్ బటర్ మసాలా, కడాయి వెజ్, దాల్ మఖని, ఛోల్, రాజ్మా</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-chinese">
+            <h3><span class="menu-item-en">Chinese (Veg)</span><span class="menu-item-te" style="display:none">చైనీస్ (వెజ్)</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Veg Noodles, Fried Rice, Gobi Manchurian, Spring Rolls</span><span class="menu-item-te" style="display:none">వెజ్ నూడుల్స్, ఫ్రైడ్ రైస్, గోబీ మంచూరియన్, స్ప్రింగ్ రోల్స్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-desserts">
+            <h3><span class="menu-item-en">Desserts & Sweets</span><span class="menu-item-te" style="display:none">డెజర్ట్స్ & స్వీట్స్</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Gulab Jamun, Rasgulla, Jalebi, Laddu, Kheer, Ice Cream</span><span class="menu-item-te" style="display:none">గులాబ్ జామున్, రసగుల్లా, జిలేబి, లడ్డూ, ఖీర్, ఐస్ క్రీమ్</span></li>
+            </ul>
+        </div>
+        <div class="menu-section" id="menu-beverages">
+            <h3><span class="menu-item-en">Beverages</span><span class="menu-item-te" style="display:none">పానీయాలు</span></h3>
+            <ul class="menu-list">
+                <li><span class="menu-item-en">Tea, Coffee, Buttermilk, Lassi, Fresh Juices</span><span class="menu-item-te" style="display:none">టీ, కాఫీ, మజ్జిగ, లస్సీ, తాజా జ్యూసులు</span></li>
+            </ul>
+        </div>
+    </section>
+    <section id="inquiry">
+        <section id="review" style="text-align:center; margin-bottom: 40px;">
+            <h2>Share Your Experience</h2>
+            <a href="https://share.google/gtsP8at1miGNGFwgP" target="_blank" rel="noopener" style="display:inline-block;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Google_Reviews_logo.png" alt="Rate Us on Google" style="height:70px; width:auto; margin-bottom:10px;">
+                <div style="font-size:1.2em; font-weight:bold; color:#4285F4; margin-top:5px;">Rate Us</div>
+            </a>
+        </section>
+        <h2>Inquiry Form</h2>
+        <p style="margin-bottom: 1em;">Please use the form below to send us your catering inquiry.<br>దయచేసి మీ క్యాటరింగ్ విచారణను పంపడానికి క్రింది ఫారమ్‌ను ఉపయోగించండి.</p>
+        <iframe src="https://forms.gle/jkDQbJwnMqw2nHkN7" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" style="background: #fff; border-radius: 8px;">Loading…</iframe>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Phone: <a href="tel:+919849142922">+91 98491 42922</a></p>
+        <p>Email: <a href="mailto:saigayatricaterers@gmail.com">saigayatricaterers@gmail.com</a></p>
+    </section>
+    <section id="address">
+        <h2>Address & Area of Operations</h2>
+        <p>7-57/1, Opposite Venkateswara Swamy Temple, Shirdi Nagar, Almasguda, Telangana 500097, India</p>
+        <p>We serve Hyderabad and surrounding areas.</p>
+        <p>We serve in both the Telugu states. We have kitchens in multiple cities in Telugu states :)</p>
+    </section>
+    <footer>
+        <p>&copy; 2025 Sai Gayatri Caterers. All rights reserved.</p>
+    </footer>
+</body>
+</html>
