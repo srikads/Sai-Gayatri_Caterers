@@ -739,13 +739,26 @@ img {
 
 /* Ensure menu items are visible by default */
 .menu-item-en, .menu-folder-en {
-    display: inline;
-    opacity: 1;
+    display: inline !important;
+    opacity: 1 !important;
 }
 
 .menu-item-te, .menu-folder-te {
-    display: none;
+    display: none !important;
+    opacity: 0 !important;
+}
+
+/* Fallback: Ensure menu items are always visible */
+.menu-list li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Only apply animation styles when specifically triggered */
+.menu-list li.animate-in {
     opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Interactive elements */

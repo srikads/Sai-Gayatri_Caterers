@@ -76,7 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuSections = document.querySelectorAll('.menu-section');
     const menuItems = document.querySelectorAll('.menu-list li');
     
-    // Set initial states for animations
+    // Initialize menu language display first
+    initializeMenuLanguage();
+    
+    // Set initial states for animations (but ensure menu items are visible)
     sections.forEach(section => {
         if (section.id !== 'home') {
             section.style.opacity = '0';
@@ -85,14 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    menuItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-30px)';
-        item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-    });
-    
-    // Initialize menu language display
-    initializeMenuLanguage();
+    // Skip menu item animation for now to ensure visibility
+    // menuItems.forEach(item => {
+    //     item.style.opacity = '1';
+    //     item.style.transform = 'translateX(0)';
+    // });
     
     // Start observing
     sections.forEach(section => observer.observe(section));
@@ -104,16 +104,29 @@ function initializeMenuLanguage() {
     const enEls = document.querySelectorAll('.menu-item-en, .menu-folder-en');
     const teEls = document.querySelectorAll('.menu-item-te, .menu-folder-te');
     
+    console.log('Initializing menu language. English elements found:', enEls.length);
+    console.log('Telugu elements found:', teEls.length);
+    
     // Ensure English is visible by default
     enEls.forEach(el => {
         el.style.display = 'inline';
         el.style.opacity = '1';
+        el.style.visibility = 'visible';
     });
     
     // Hide Telugu initially
     teEls.forEach(el => {
         el.style.display = 'none';
         el.style.opacity = '0';
+        el.style.visibility = 'hidden';
+    });
+    
+    // Ensure menu items are visible
+    const menuItems = document.querySelectorAll('.menu-list li');
+    console.log('Menu items found:', menuItems.length);
+    menuItems.forEach(item => {
+        item.style.display = 'block';
+        item.style.opacity = '1';
     });
 }
 
