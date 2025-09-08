@@ -750,8 +750,17 @@ img {
 
 /* Fallback: Ensure menu items are always visible */
 .menu-list li {
-    opacity: 1;
-    transform: translateX(0);
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Ensure menu sections are visible */
+.menu-section {
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
 }
 
 /* Only apply animation styles when specifically triggered */

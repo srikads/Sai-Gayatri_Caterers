@@ -56,14 +56,14 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
             
-            // Stagger animation for menu items
+            // Ensure menu items are always visible - no animation delays
             if (entry.target.classList.contains('menu-section')) {
                 const menuItems = entry.target.querySelectorAll('.menu-list li');
-                menuItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateX(0)';
-                    }, index * 50);
+                menuItems.forEach((item) => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                    item.style.display = 'block';
+                    item.style.visibility = 'visible';
                 });
             }
         }
@@ -97,6 +97,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start observing
     sections.forEach(section => observer.observe(section));
     menuSections.forEach(section => observer.observe(section));
+    
+    // Additional safety check after 1 second to ensure menu is visible
+    setTimeout(() => {
+        const allMenuItems = document.querySelectorAll('.menu-list li');
+        const allMenuSections = document.querySelectorAll('.menu-section');
+        
+        console.log('Safety check - ensuring menu visibility');
+        
+        allMenuItems.forEach(item => {
+            if (item.style.opacity !== '1' || item.style.display === 'none') {
+                item.style.display = 'block';
+                item.style.opacity = '1';
+                item.style.visibility = 'visible';
+                item.style.transform = 'translateX(0)';
+            }
+        });
+        
+        allMenuSections.forEach(section => {
+            if (section.style.opacity !== '1' || section.style.display === 'none') {
+                section.style.opacity = '1';
+                section.style.visibility = 'visible';
+                section.style.display = 'block';
+            }
+        });
+    }, 1000);
 });
 
 // Initialize menu language display
@@ -121,12 +146,23 @@ function initializeMenuLanguage() {
         el.style.visibility = 'hidden';
     });
     
-    // Ensure menu items are visible
+    // Ensure menu items are visible immediately
     const menuItems = document.querySelectorAll('.menu-list li');
     console.log('Menu items found:', menuItems.length);
     menuItems.forEach(item => {
         item.style.display = 'block';
         item.style.opacity = '1';
+        item.style.visibility = 'visible';
+        item.style.transform = 'translateX(0)';
+    });
+    
+    // Also make sure all menu sections are visible
+    const allMenuSections = document.querySelectorAll('.menu-section');
+    console.log('Menu sections found:', allMenuSections.length);
+    allMenuSections.forEach(section => {
+        section.style.opacity = '1';
+        section.style.visibility = 'visible';
+        section.style.display = 'block';
     });
 }
 
