@@ -275,7 +275,7 @@ nav a:hover::after {
 /* Sections */
 section {
     max-width: 1400px;
-    margin: 4rem auto;
+    margin: 2.5rem auto;
     background: white;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-soft);
@@ -283,6 +283,15 @@ section {
     position: relative;
     overflow: hidden;
     transition: var(--transition-smooth);
+}
+
+/* Reduce gap between closely related sections */
+#menu + #review {
+    margin-top: 1.5rem;
+}
+
+#review + #inquiry {
+    margin-top: 1.5rem;
 }
 
 section::before {
@@ -343,6 +352,8 @@ section h2::after {
     height: 250px;
     object-fit: cover;
     transition: var(--transition-smooth);
+    background: linear-gradient(45deg, var(--soft-pink) 0%, var(--cream-white) 100%);
+    border-radius: var(--border-radius);
 }
 
 .gallery-item:hover {
@@ -451,6 +462,7 @@ section h2::after {
     align-items: center;
     justify-content: center;
     font-size: 0.8rem;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
 }
 
 .menu-list li:hover {
@@ -486,6 +498,23 @@ section h2::after {
 #contact a:hover, #address a:hover {
     color: white;
     text-shadow: 0 0 10px var(--accent-yellow);
+}
+
+/* Review Section */
+#review {
+    background: linear-gradient(135deg, var(--cream-white) 0%, var(--soft-pink) 100%);
+    text-align: center;
+    padding: 2rem;
+}
+
+#review h2 {
+    color: var(--deep-purple);
+    margin-bottom: 1.5rem;
+}
+
+#review a:hover {
+    transform: scale(1.05);
+    transition: var(--transition-smooth);
 }
 
 /* Inquiry Section */
@@ -706,6 +735,17 @@ img {
     to {
         opacity: 1;
     }
+}
+
+/* Ensure menu items are visible by default */
+.menu-item-en, .menu-folder-en {
+    display: inline;
+    opacity: 1;
+}
+
+.menu-item-te, .menu-folder-te {
+    display: none;
+    opacity: 0;
 }
 
 /* Interactive elements */

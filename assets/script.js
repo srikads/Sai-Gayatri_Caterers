@@ -91,10 +91,31 @@ document.addEventListener('DOMContentLoaded', () => {
         item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
     });
     
+    // Initialize menu language display
+    initializeMenuLanguage();
+    
     // Start observing
     sections.forEach(section => observer.observe(section));
     menuSections.forEach(section => observer.observe(section));
 });
+
+// Initialize menu language display
+function initializeMenuLanguage() {
+    const enEls = document.querySelectorAll('.menu-item-en, .menu-folder-en');
+    const teEls = document.querySelectorAll('.menu-item-te, .menu-folder-te');
+    
+    // Ensure English is visible by default
+    enEls.forEach(el => {
+        el.style.display = 'inline';
+        el.style.opacity = '1';
+    });
+    
+    // Hide Telugu initially
+    teEls.forEach(el => {
+        el.style.display = 'none';
+        el.style.opacity = '0';
+    });
+}
 
 // Language switcher with enhanced animations
 const langEnBtn = document.getElementById('lang-en');
@@ -166,8 +187,7 @@ if (langEnBtn && langTeBtn) {
     });
 }
 
-// Set initial language
-setMenuLang('en');
+// Initial language is set by initializeMenuLanguage function
 
 // Header scroll effect
 let lastScrollTop = 0;
@@ -284,13 +304,13 @@ window.addEventListener('load', () => {
 
 // Preload images for better performance
 const imageUrls = [
-    'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=500&q=80',
-    'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80',
+    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80',
+    'https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=500&q=80',
+    'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=500&q=80',
     'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=500&q=80',
-    'https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=500&q=80',
+    'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=500&q=80',
+    'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=500&q=80',
     'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=500&q=80',
-    'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=500&q=80',
-    'https://images.unsplash.com/photo-1574653339688-b0245649fcce?auto=format&fit=crop&w=500&q=80',
     'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=80'
 ];
 
