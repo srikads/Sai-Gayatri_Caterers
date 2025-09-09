@@ -368,7 +368,8 @@ const imageUrls = [
     'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=500&q=80',
     'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=500&q=80',
     'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=500&q=80',
-    'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=80'
+    'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=80',
+    'https://images.unsplash.com/photo-1604608672516-ab1b337d9840?auto=format&fit=crop&w=400&q=80'
 ];
 
 imageUrls.forEach(url => {
@@ -411,10 +412,11 @@ function initializeMenuTiles() {
         if (!toggleBtn || !content) return;
         
         // Set initial state - collapsed
-        content.style.maxHeight = '0';
+        content.style.maxHeight = '0px';
         content.style.overflow = 'hidden';
-        content.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        content.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease';
         content.style.opacity = '0';
+        content.style.padding = '0 1.5rem';
         toggleBtn.textContent = '+';
         
         toggleBtn.addEventListener('click', (e) => {
@@ -425,15 +427,17 @@ function initializeMenuTiles() {
             
             if (isExpanded) {
                 // Collapse
-                content.style.maxHeight = '0';
+                content.style.maxHeight = '0px';
                 content.style.opacity = '0';
+                content.style.padding = '0 1.5rem';
                 toggleBtn.textContent = '+';
                 toggleBtn.style.transform = 'rotate(0deg)';
                 tile.classList.remove('expanded');
             } else {
                 // Expand
-                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.maxHeight = content.scrollHeight + 30 + 'px'; // Add extra space for padding
                 content.style.opacity = '1';
+                content.style.padding = '1.5rem';
                 toggleBtn.textContent = '−';
                 toggleBtn.style.transform = 'rotate(180deg)';
                 tile.classList.add('expanded');
