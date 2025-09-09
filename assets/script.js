@@ -79,6 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize menu language display first
     initializeMenuLanguage();
     
+    // Initialize menu tiles
+    initializeMenuTiles();
+    
     // Set initial states for animations (but keep menu section visible)
     sections.forEach(section => {
         if (section.id !== 'home' && section.id !== 'menu') {
@@ -396,6 +399,68 @@ document.addEventListener('keydown', (e) => {
         konamiCode = [];
     }
 });
+
+// Menu tile expand/collapse functionality
+function initializeMenuTiles() {
+    const menuTiles = document.querySelectorAll('.menu-tile');
+    
+    menuTiles.forEach(tile => {
+        const toggleBtn = tile.querySelector('.menu-toggle');
+        const content = tile.querySelector('.menu-tile-content');
+        
+        if (!toggleBtn || !content) return;
+        
+        // Set initial state - collapsed
+        content.style.maxHeight = '0';
+        content.style.overflow = 'hidden';
+        content.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        content.style.opacity = '0';
+        toggleBtn.textContent = '+';
+        
+        toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isExpanded = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+            
+            if (isExpanded) {
+                // Collapse
+                content.style.maxHeight = '0';
+                content.style.opacity = '0';
+                toggleBtn.textContent = '+';
+                toggleBtn.style.transform = 'rotate(0deg)';
+                tile.classList.remove('expanded');
+            } else {
+                // Expand
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.opacity = '1';
+                toggleBtn.textContent = '−';
+                toggleBtn.style.transform = 'rotate(180deg)';
+                tile.classList.add('expanded');
+            }
+            
+            // Button press animation
+            toggleBtn.style.transform += ' scale(0.9)';
+            setTimeout(() => {
+                if (toggleBtn.textContent === '+') {
+                    toggleBtn.style.transform = 'rotate(0deg)';
+                } else {
+                    toggleBtn.style.transform = 'rotate(180deg)';
+                }
+            }, 150);
+        });
+        
+        // Add hover effects
+        toggleBtn.addEventListener('mouseenter', () => {
+            toggleBtn.style.backgroundColor = 'rgba(255, 107, 53, 0.2)';
+        });
+        
+        toggleBtn.addEventListener('mouseleave', () => {
+            toggleBtn.style.backgroundColor = '';
+        });
+    });
+}
+
 
 // Add rainbow animation for Easter egg
 const style = document.createElement('style');
