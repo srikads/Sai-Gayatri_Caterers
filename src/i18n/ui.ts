@@ -105,6 +105,22 @@ const en = {
   'rites.note':
     'Please call or WhatsApp us with the date, tithi and any family-specific rules. Our cooks can also come to your home (cooks-only service).',
 
+  'about.eyebrow': 'About us',
+  'about.title': 'A family kitchen, trusted since 1998',
+  'about.p1':
+    'Sai Gayatri Caterers is run by Sri Satyanarayana Murthy garu from our kitchen in Shirdi Nagar, Almasguda, opposite the Venkateswara Swamy temple. For over 25 years he has cooked for the weddings, upanayanams, gruhapravesams and poojas of Telugu families across Hyderabad.',
+  'about.p2':
+    'His way of working has not changed: Brahmin cooks, madi and aacharam, food made fresh on the day, and each family’s customs followed exactly. Many families have come back to us for every function for years, and that trust is what we protect at every event.',
+  'about.p3': 'Call or WhatsApp us to plan the menu for your family’s occasion.',
+  'about.owner': 'Sri Satyanarayana Murthy garu',
+  'about.ownerRole': 'Owner, Sai Gayatri Caterers',
+  'about.v1': 'Punctual, every time',
+  'about.v2': 'Clean, hygienic kitchens',
+  'about.v3': 'Sweets families remember',
+  'about.v4': 'Families who return for years',
+  'about.quoteBy': 'Jayaprada Alladi, on Google',
+  'about.yearsLabel': 'years of cooking for Telugu families, since 1998',
+
   'areas.title': 'Where we serve',
   'areas.lead': 'Mainly Hyderabad and nearby areas, with kitchens and teams across the Telugu states.',
   'areas.primaryTitle': 'Hyderabad & surroundings',
@@ -246,6 +262,22 @@ const te: Record<UIKey, string> = {
     'ఆబ్దికం, మాసికం, తద్దినం వంటి కార్యాలకు శాస్త్రం మరియు మీ కుటుంబ సంప్రదాయం ప్రకారం, పూర్తిగా మడిలో, ఆ రోజులకు తగిన గౌరవంతో వంట చేస్తాం.',
   'rites.note':
     'దయచేసి తేదీ, తిథి మరియు మీ కుటుంబ నియమాలతో కాల్ లేదా వాట్సాప్ చేయండి. మా వంటవాళ్ళు మీ ఇంటికి కూడా వస్తారు.',
+
+  'about.eyebrow': 'మా గురించి',
+  'about.title': '1998 నుండి నమ్మకమైన కుటుంబ వంటశాల',
+  'about.p1':
+    'సాయి గాయత్రి క్యాటరర్స్‌ను శ్రీ సత్యనారాయణ మూర్తి గారు అల్మాస్‌గూడ, షిర్డీ నగర్‌లో, వేంకటేశ్వర స్వామి ఆలయం ఎదురుగా ఉన్న మా వంటశాల నుండి నడిపిస్తున్నారు. 25 సంవత్సరాలకు పైగా హైదరాబాద్ అంతటా తెలుగు కుటుంబాల పెళ్లిళ్లు, ఉపనయనాలు, గృహప్రవేశాలు, పూజలకు వారు వంట చేస్తున్నారు.',
+  'about.p2':
+    'వారి పద్ధతి మారలేదు: బ్రాహ్మణ వంటవాళ్ళు, మడి మరియు ఆచారం, అదే రోజు తాజా వంట, ప్రతి కుటుంబ ఆచారాన్ని అలాగే పాటించడం. ఎన్నో కుటుంబాలు ఏళ్ళుగా ప్రతి శుభకార్యానికి మమ్మల్నే పిలుస్తున్నాయి. ఆ నమ్మకాన్నే ప్రతి కార్యక్రమంలో కాపాడుకుంటాం.',
+  'about.p3': 'మీ కుటుంబ శుభకార్యానికి మెనూ ప్లాన్ చేయడానికి కాల్ లేదా వాట్సాప్ చేయండి.',
+  'about.owner': 'శ్రీ సత్యనారాయణ మూర్తి గారు',
+  'about.ownerRole': 'యజమాని, సాయి గాయత్రి క్యాటరర్స్',
+  'about.v1': 'ఎప్పుడూ సమయపాలన',
+  'about.v2': 'శుభ్రమైన, పరిశుభ్రమైన వంటశాలలు',
+  'about.v3': 'గుర్తుండిపోయే స్వీట్లు',
+  'about.v4': 'ఏళ్ళుగా తిరిగి వచ్చే కుటుంబాలు',
+  'about.quoteBy': 'జయప్రద అల్లాడి, గూగుల్‌లో',
+  'about.yearsLabel': 'సంవత్సరాలుగా తెలుగు కుటుంబాలకు వంట, 1998 నుండి',
 
   'areas.title': 'మేము సేవ చేసే ప్రాంతాలు',
   'areas.lead': 'ముఖ్యంగా హైదరాబాద్ మరియు పరిసర ప్రాంతాలు, తెలుగు రాష్ట్రాలంతటా మా బృందాలు ఉన్నాయి.',

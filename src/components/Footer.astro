@@ -42,6 +42,7 @@ const footerOccasions = occasions.filter((o) => featured.includes(o.slug));
     <div>
       <h2 class="site-footer__h">{t('footer.quick')}</h2>
       <ul>
+        <li><a href={p('/#about')}>{t('nav.about')}</a></li>
         <li><a href={p('/menu/')}>{t('nav.menu')}</a></li>
         <li><a href={p('/occasions/')}>{t('nav.allOccasions')}</a></li>
         <li><a href={p('/#services')}>{t('nav.services')}</a></li>

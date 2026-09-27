@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Icon from '../../components/Icon.astro';
+import Logo from '../../components/Logo.astro';
 import EnquiryForm from '../../components/EnquiryForm.astro';
 import FaqList from '../../components/FaqList.astro';
 import type { Lang, OccasionGroup } from '../../data/types';
@@ -40,6 +41,9 @@ const services = [
   { icon: 'diya', key: 'rites' },
   { icon: 'gift', key: 'festival' },
 ] as const;
+
+const aboutQuote = testimonials.find((r) => r.name === 'Jayaprada Alladi');
+const values = ['v1', 'v2', 'v3', 'v4'] as const;
 
 const groups: OccasionGroup[] = ['life', 'home', 'festival'];
 const signature = menu.filter((c) => c.featured);
@@ -101,6 +105,53 @@ const faqSchema = {
           </div>
         ))
       }
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="wrap about">
+      <div class="about__copy">
+        <p class="eyebrow">{t('about.eyebrow')}</p>
+        <h2>{t('about.title')}</h2>
+        <p>{t('about.p1')}</p>
+        <p>{t('about.p2')}</p>
+        <ul class="about__values">
+          {
+            values.map((v) => (
+              <li>
+                <Icon name="check" />
+                {t(`about.${v}`)}
+              </li>
+            ))
+          }
+        </ul>
+        <p class="muted">{t('about.p3')}</p>
+        <div class="btn-row">
+          <a class="btn btn--wa" href={whatsappLink(t('wa.default'))} target="_blank" rel="noopener" data-track="whatsapp-about"
+            ><Icon name="whatsapp" />{t('cta.whatsapp')}</a
+          >
+          <a class="btn btn--outline" href={`tel:${site.phone}`} data-track="call-about"><Icon name="phone" />{site.phoneDisplay}</a>
+        </div>
+      </div>
+      <aside class="about__card">
+        <div class="about__owner">
+          <Logo />
+          <div>
+            <p class="about__owner-name">{t('about.owner')}</p>
+            <p class="about__owner-role">{t('about.ownerRole')}</p>
+          </div>
+        </div>
+        <p class="about__since"><span>25+</span>{t('about.yearsLabel')}</p>
+        {
+          aboutQuote && (
+            <figure class="about__quote">
+              <blockquote lang={aboutQuote.quote[lang] ? lang : 'en'}>“{aboutQuote.quote[lang] ?? aboutQuote.quote.en}”</blockquote>
+              <figcaption>{t('about.quoteBy')}</figcaption>
+            </figure>
+          )
+        }
+      </aside>
     </div>
   </section>
 

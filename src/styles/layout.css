@@ -255,6 +255,19 @@
     padding: 0;
   }
 }
+@media (min-width: 1025px) and (max-width: 1240px) {
+  .brand__tag {
+    display: none;
+  }
+  .site-nav__link {
+    padding-inline: 9px;
+  }
+  .brand__name {
+    white-space: normal;
+    max-width: 9em;
+    font-size: 1.15rem;
+  }
+}
 
 /* ---------- Mobile nav (drawer) ---------- */
 @media (max-width: 1024px) {
