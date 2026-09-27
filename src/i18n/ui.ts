@@ -111,7 +111,7 @@ const en = {
     'Sai Gayatri Caterers is run by Sri Satyanarayana Murthy garu from our kitchen in Shirdi Nagar, Almasguda, opposite the Venkateswara Swamy temple. For over 25 years he has cooked for the weddings, upanayanams, gruhapravesams and poojas of Telugu families across Hyderabad.',
   'about.p2':
     'His way of working has not changed: Brahmin cooks, madi and aacharam, food made fresh on the day, and each family’s customs followed exactly. Many families have come back to us for every function for years, and that trust is what we protect at every event.',
-  'about.p3': 'Call or WhatsApp us to plan the menu for your family’s occasion.',
+  'about.p3': 'Murthy garu personally plans each menu with you. Call or WhatsApp to speak with him.',
   'about.owner': 'Sri Satyanarayana Murthy garu',
   'about.ownerRole': 'Owner, Sai Gayatri Caterers',
   'about.v1': 'Punctual, every time',
@@ -269,7 +269,7 @@ const te: Record<UIKey, string> = {
     'సాయి గాయత్రి క్యాటరర్స్‌ను శ్రీ సత్యనారాయణ మూర్తి గారు అల్మాస్‌గూడ, షిర్డీ నగర్‌లో, వేంకటేశ్వర స్వామి ఆలయం ఎదురుగా ఉన్న మా వంటశాల నుండి నడిపిస్తున్నారు. 25 సంవత్సరాలకు పైగా హైదరాబాద్ అంతటా తెలుగు కుటుంబాల పెళ్లిళ్లు, ఉపనయనాలు, గృహప్రవేశాలు, పూజలకు వారు వంట చేస్తున్నారు.',
   'about.p2':
     'వారి పద్ధతి మారలేదు: బ్రాహ్మణ వంటవాళ్ళు, మడి మరియు ఆచారం, అదే రోజు తాజా వంట, ప్రతి కుటుంబ ఆచారాన్ని అలాగే పాటించడం. ఎన్నో కుటుంబాలు ఏళ్ళుగా ప్రతి శుభకార్యానికి మమ్మల్నే పిలుస్తున్నాయి. ఆ నమ్మకాన్నే ప్రతి కార్యక్రమంలో కాపాడుకుంటాం.',
-  'about.p3': 'మీ కుటుంబ శుభకార్యానికి మెనూ ప్లాన్ చేయడానికి కాల్ లేదా వాట్సాప్ చేయండి.',
+  'about.p3': 'మూర్తి గారు స్వయంగా మీతో కలిసి మెనూ ప్లాన్ చేస్తారు. వారితో మాట్లాడటానికి కాల్ లేదా వాట్సాప్ చేయండి.',
   'about.owner': 'శ్రీ సత్యనారాయణ మూర్తి గారు',
   'about.ownerRole': 'యజమాని, సాయి గాయత్రి క్యాటరర్స్',
   'about.v1': 'ఎప్పుడూ సమయపాలన',
