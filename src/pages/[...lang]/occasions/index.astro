@@ -1,0 +1,59 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Icon from '../../../components/Icon.astro';
+import type { Lang, OccasionGroup } from '../../../data/types';
+import { occasions } from '../../../data/occasions';
+import { useT, localePath, langStaticPaths } from '../../../i18n/ui';
+
+export const getStaticPaths = langStaticPaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const t = useT(lang);
+const p = (path: string) => localePath(lang, path);
+const groups: OccasionGroup[] = ['life', 'home', 'festival'];
+---
+
+<Layout lang={lang} title={t('occasions.title')} description={t('occasions.lead')}>
+  <section class="page-hero pattern-dots">
+    <div class="wrap">
+      <nav class="breadcrumbs"><a href={p('/')}>{t('nav.home')}</a> / {t('nav.occasions')}</nav>
+      <h1>{t('occasions.title')}</h1>
+      <p>{t('occasions.lead')}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      {
+        groups.map((g) => (
+          <div class="occ-group">
+            <h2 class="occ-group__title">{t(`occasions.group.${g}`)}</h2>
+            <div class="grid grid--3">
+              {occasions
+                .filter((o) => o.group === g)
+                .map((o) => (
+                  <a class="card occ-detail-card" href={p(`/occasions/${o.slug}/`)}>
+                    <span class="occ-card__icon" aria-hidden="true">
+                      {o.icon}
+                    </span>
+                    <h3>{o.name[lang]}</h3>
+                    <p>{o.blurb[lang]}</p>
+                    <span class="occ-detail-card__more">
+                      {t('occasions.sampleMenu')} <Icon name="arrow" />
+                    </span>
+                  </a>
+                ))}
+            </div>
+          </div>
+        ))
+      }
+      <div class="card rites-cta">
+        <div>
+          <h2>{t('rites.title')}</h2>
+          <p>{t('rites.lead')}</p>
+        </div>
+        <a class="btn btn--primary" href={p('/ancestral-rites/')}>{t('nav.rites')} <Icon name="arrow" /></a>
+      </div>
+    </div>
+  </section>
+</Layout>

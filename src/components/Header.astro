@@ -1,0 +1,127 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import type { Lang, OccasionGroup } from '../data/types';
+import { occasions } from '../data/occasions';
+import { site, whatsappLink } from '../data/site';
+import { useT, localePath } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  basePath: string;
+}
+
+const { lang, basePath } = Astro.props;
+const t = useT(lang);
+const p = (path: string) => localePath(lang, path);
+const otherLang: Lang = lang === 'en' ? 'te' : 'en';
+const groups: OccasionGroup[] = ['life', 'home', 'festival'];
+
+const isActive = (path: string) =>
+  path === '/' ? basePath === '/' : basePath.startsWith(path.replace(/\/$/, ''));
+---
+
+<header class="site-header" data-header>
+  <div class="wrap site-header__bar">
+    <a class="brand" href={p('/')} aria-label={site.name[lang]}>
+      <Logo />
+      <span class="brand__text">
+        <span class="brand__name">{site.name[lang]}</span>
+        <span class="brand__tag">{t('brand.tagline')}</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main" data-nav>
+      <ul class="site-nav__list">
+        <li class="has-panel" data-dropdown>
+          <button
+            class="site-nav__link site-nav__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="panel-occasions"
+            aria-current={isActive('/occasions/') ? 'page' : undefined}
+          >
+            {t('nav.occasions')}
+            <Icon name="chevron" class="site-nav__chev" />
+          </button>
+          <div class="panel" id="panel-occasions">
+            <div class="panel__cols">
+              {
+                groups.map((g) => (
+                  <div class="panel__col">
+                    <p class="panel__heading">{t(`occasions.group.${g}`)}</p>
+                    <ul>
+                      {occasions
+                        .filter((o) => o.group === g)
+                        .map((o) => (
+                          <li>
+                            <a href={p(`/occasions/${o.slug}/`)}>{o.name[lang]}</a>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+                ))
+              }
+            </div>
+            <div class="panel__foot">
+              <a href={p('/occasions/')}>{t('nav.allOccasions')} <Icon name="arrow" /></a>
+              <a href={p('/ancestral-rites/')}>{t('nav.rites')} <Icon name="arrow" /></a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a class="site-nav__link" href={p('/menu/')} aria-current={isActive('/menu/') ? 'page' : undefined}
+            >{t('nav.menu')}</a
+          >
+        </li>
+        <li><a class="site-nav__link" href={p('/#services')}>{t('nav.services')}</a></li>
+        <li>
+          <a
+            class="site-nav__link"
+            href={p('/ancestral-rites/')}
+            aria-current={isActive('/ancestral-rites/') ? 'page' : undefined}>{t('nav.rites')}</a
+          >
+        </li>
+        <li><a class="site-nav__link" href={p('/#about')}>{t('nav.about')}</a></li>
+        <li><a class="site-nav__link" href={p('/#contact')}>{t('nav.contact')}</a></li>
+      </ul>
+
+      <div class="site-nav__mobile-cta">
+        <a class="btn btn--wa" href={whatsappLink(t('wa.default'))} target="_blank" rel="noopener" data-track="whatsapp-nav"
+          ><Icon name="whatsapp" />{t('cta.whatsapp')}</a
+        >
+        <a class="btn btn--outline" href={`tel:${site.phone}`} data-track="call-nav"><Icon name="phone" />{site.phoneDisplay}</a>
+      </div>
+    </nav>
+
+    <div class="site-header__actions">
+      <a
+        class="lang-toggle"
+        href={localePath(otherLang, basePath)}
+        hreflang={otherLang}
+        lang={otherLang}
+        data-lang-switch={otherLang}
+        title={t('lang.switchLabel')}
+        aria-label={t('lang.switchLabel')}
+      >
+        {t('lang.switch')}
+      </a>
+      <a class="btn btn--primary site-header__call" href={`tel:${site.phone}`} data-track="call-header">
+        <Icon name="phone" /><span>{site.phoneDisplay}</span>
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-controls="site-nav"
+        aria-expanded="false"
+        data-nav-toggle
+        data-label-open={t('nav.open')}
+        data-label-close={t('nav.close')}
+        aria-label={t('nav.open')}
+      >
+        <Icon name="menu" class="nav-toggle__open" />
+        <Icon name="close" class="nav-toggle__close" />
+      </button>
+    </div>
+  </div>
+</header>

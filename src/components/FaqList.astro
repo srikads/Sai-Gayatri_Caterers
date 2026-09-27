@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+import type { Lang } from '../data/types';
+import { faqs } from '../data/faq';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<div class="faq">
+  {
+    faqs.map((f) => (
+      <details class="faq__item">
+        <summary>
+          {f.q[lang]}
+          <Icon name="chevron" class="faq__chev" />
+        </summary>
+        <p>{f.a[lang]}</p>
+      </details>
+    ))
+  }
+</div>

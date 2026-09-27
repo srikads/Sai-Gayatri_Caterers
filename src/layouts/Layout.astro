@@ -1,0 +1,141 @@
+---
+import '../styles/global.css';
+import '../styles/layout.css';
+import '../styles/pages.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import type { Lang } from '../data/types';
+import { site, whatsappLink } from '../data/site';
+import { useT, localePath, stripLang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  /** Extra JSON-LD objects for this page (e.g. FAQPage, Service). */
+  schema?: object[];
+}
+
+const { lang, title, description, schema = [] } = Astro.props;
+const t = useT(lang);
+const pageTitle = title ? `${title} | ${site.name[lang]}` : t('meta.title');
+const pageDescription = description ?? t('meta.description');
+
+const basePath = stripLang(Astro.url.pathname);
+const canonical = new URL(localePath(lang, basePath), site.url).href;
+const enUrl = new URL(localePath('en', basePath), site.url).href;
+const teUrl = new URL(localePath('te', basePath), site.url).href;
+
+const business = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'FoodEstablishment'],
+  '@id': `${site.url}/#business`,
+  name: site.name.en,
+  alternateName: site.name.te,
+  description: t('meta.description'),
+  url: site.url,
+  telephone: site.phone,
+  email: site.email,
+  foundingDate: String(site.since),
+  image: `${site.url}/og-image.png`,
+  logo: `${site.url}/favicon.svg`,
+  servesCuisine: ['Telugu', 'Andhra', 'South Indian', 'Vegetarian', 'Brahmin'],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    addressLocality: site.address.locality,
+    addressRegion: site.address.region,
+    postalCode: site.address.postalCode,
+    addressCountry: site.address.country,
+  },
+  areaServed: [
+    'Hyderabad',
+    'Secunderabad',
+    ...site.areas.cities.map((c) => c.en),
+  ].map((name) => ({ '@type': 'City', name })),
+  knowsLanguage: ['te', 'en'],
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en-IN" href={enUrl} />
+    <link rel="alternate" hreflang="te-IN" href={teUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#561320" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name[lang]} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${site.url}/og-image.png`} />
+    <meta property="og:locale" content={lang === 'te' ? 'te_IN' : 'en_IN'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Serif+Telugu:wght@500;600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap"
+    />
+
+    {
+      lang === 'en' && (
+        <script is:inline>
+          try {
+            if (localStorage.getItem('sgc-lang') === 'te') {
+              var p = location.pathname === '/' ? '/te/' : '/te' + location.pathname;
+              location.replace(p + location.search + location.hash);
+            }
+          } catch (e) {}
+        </script>
+      )
+    }
+
+    <script type="application/ld+json" set:html={JSON.stringify(business)} />
+    {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t('skip')}</a>
+    <Header lang={lang} basePath={basePath} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+
+    <a
+      class="wa-float"
+      href={whatsappLink(t('wa.default'))}
+      target="_blank"
+      rel="noopener"
+      aria-label={t('wa.float')}
+      data-track="whatsapp-float"
+    >
+      <Icon name="whatsapp" />
+    </a>
+
+    <nav class="mobile-cta" aria-label={t('nav.contact')}>
+      <a href={`tel:${site.phone}`} data-track="call-bar"><Icon name="phone" />{t('cta.call')}</a>
+      <a
+        class="mobile-cta__wa"
+        href={whatsappLink(t('wa.default'))}
+        target="_blank"
+        rel="noopener"
+        data-track="whatsapp-bar"><Icon name="whatsapp" />{t('cta.whatsapp')}</a
+      >
+    </nav>
+
+    <script>
+      import '../scripts/site.ts';
+    </script>
+  </body>
+</html>

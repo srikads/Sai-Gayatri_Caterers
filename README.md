@@ -1,22 +1,41 @@
-# Sai Gayatri Caterers Website
+# Sai Gayatri Caterers
 
-This is a static website for Sai Gayatri Caterers, created as a freelance project. The site showcases the menu, gallery, contact information, address, area of operations, and includes an inquiry form.
+Website for **Sai Gayatri Caterers**, pure-vegetarian Telugu Brahmin caterers in Almasguda, Hyderabad (since 1998).
+Built with [Astro](https://astro.build) as a static, bilingual (English + Telugu) site, deployed on Vercel.
 
-## Features
-- Responsive, modern design
-- Menu section
-- Gallery with sample images
-- Contact information
-- Address and area of operations
-- Inquiry form (static, no backend)
+## Pages
 
-## How to Use
-1. Clone or download this repository.
-2. Open `index.html` in your browser to view the website.
-3. To deploy online, use platforms like Vercel, Netlify, or GitHub Pages.
+| English | Telugu | What |
+|---|---|---|
+| `/` | `/te/` | Home: hero, trust bar, occasions, promise, services, signature menu, rites, areas, reviews, FAQ, WhatsApp enquiry |
+| `/menu/` | `/te/menu/` | Full searchable menu; visitors can pick dishes and send the list on WhatsApp |
+| `/occasions/` | `/te/occasions/` | All occasions, grouped |
+| `/occasions/<slug>/` | `/te/occasions/<slug>/` | One page per occasion with a sample menu and pre-filled enquiry |
+| `/ancestral-rites/` | `/te/ancestral-rites/` | Aabdhikam, Masikam, Taddinam… (sober design) |
 
-## Freelance Work
-This project was developed as a freelance assignment. For inquiries or similar projects, please contact the developer.
+## Editing content
 
----
-© 2025 Sai Gayatri Caterers. All rights reserved.
+All content lives in `src/data/` and `src/i18n/`. Every text has an `en` and a `te` version.
+
+- `src/data/site.ts`: phone, WhatsApp, email, address, service areas
+- `src/data/menu.ts`: menu categories and dishes (`featured: true` = signature Telugu section)
+- `src/data/occasions.ts`, `rites.ts`, `faq.ts`: occasion pages, rites, FAQs
+- `src/data/testimonials.ts`: paste real Google reviews here; the reviews section shows them automatically
+- `src/i18n/ui.ts`: all interface text (buttons, headings) in both languages
+
+## Still to add (from the owner)
+
+- [ ] Real logo (replace `src/components/Logo.astro` and `public/favicon.svg`)
+- [ ] Event, food and team photos (plus a gallery section)
+- [ ] 3–6 real Google reviews in `testimonials.ts`
+- [ ] Real milestones, such as events served and families served, for the trust bar
+- [ ] Native Telugu proofread of all `te` text
+
+## Development
+
+```sh
+npm install
+npm run dev      # http://localhost:4321
+npm run check    # type-check
+npm run build    # static output in dist/
+```

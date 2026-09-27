@@ -1,0 +1,387 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
+import Logo from '../../components/Logo.astro';
+import EnquiryForm from '../../components/EnquiryForm.astro';
+import FaqList from '../../components/FaqList.astro';
+import type { Lang, OccasionGroup } from '../../data/types';
+import { occasions } from '../../data/occasions';
+import { rites } from '../../data/rites';
+import { menu } from '../../data/menu';
+import { faqs } from '../../data/faq';
+import { testimonials } from '../../data/testimonials';
+import { site, whatsappLink } from '../../data/site';
+import { useT, localePath, langStaticPaths } from '../../i18n/ui';
+
+export const getStaticPaths = langStaticPaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const t = useT(lang);
+const p = (path: string) => localePath(lang, path);
+
+const promises = [
+  { icon: 'flame', key: 'madi' },
+  { icon: 'leaf', key: 'sattvic' },
+  { icon: 'drop', key: 'ghee' },
+  { icon: 'sparkle', key: 'leaf' },
+  { icon: 'home', key: 'tradition' },
+  { icon: 'check', key: 'fresh' },
+] as const;
+
+const trust = [
+  { icon: 'calendar', key: 'years' },
+  { icon: 'chef', key: 'cooks' },
+  { icon: 'users', key: 'min' },
+  { icon: 'star', key: 'tasting' },
+] as const;
+
+const services = [
+  { icon: 'users', key: 'full' },
+  { icon: 'chef', key: 'cooks' },
+  { icon: 'diya', key: 'rites' },
+  { icon: 'gift', key: 'festival' },
+] as const;
+
+const aboutQuote = testimonials.find((r) => r.name === 'Jayaprada Alladi');
+const values = ['v1', 'v2', 'v3', 'v4'] as const;
+
+const groups: OccasionGroup[] = ['life', 'home', 'festival'];
+const signature = menu.filter((c) => c.featured);
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q[lang],
+    acceptedAnswer: { '@type': 'Answer', text: f.a[lang] },
+  })),
+};
+---
+
+<Layout lang={lang} schema={[faqSchema]}>
+  <!-- Hero -->
+  <section class="hero pattern-dots">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">{t('hero.eyebrow')}</p>
+        <h1>{t('hero.title')}</h1>
+        <p class="hero__lead">{t('hero.lead')}</p>
+        <div class="btn-row">
+          <a class="btn btn--wa" href={whatsappLink(t('wa.default'))} target="_blank" rel="noopener" data-track="whatsapp-hero"
+            ><Icon name="whatsapp" />{t('cta.whatsapp')}</a
+          >
+          <a class="btn btn--light" href={`tel:${site.phone}`} data-track="call-hero"><Icon name="phone" />{site.phoneDisplay}</a>
+        </div>
+      </div>
+      <aside class="hero__leaf" aria-label={t('promise.title')}>
+        <p class="hero__leaf-title">{t('promise.title')}</p>
+        <ul>
+          {
+            promises.slice(0, 5).map((pr) => (
+              <li>
+                <Icon name="check" />
+                <span>{t(`promise.${pr.key}.t`)}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <a class="btn btn--gold" href="#enquire">{t('cta.quote')}</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <section class="trust" aria-label={t('promise.title')}>
+    <div class="wrap trust__grid">
+      {
+        trust.map((it) => (
+          <div class="trust__item">
+            <Icon name={it.icon} />
+            <div>
+              <strong>{t(`trust.${it.key}`)}</strong>
+              <span>{t(`trust.${it.key}Sub`)}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="wrap about">
+      <div class="about__copy">
+        <p class="eyebrow">{t('about.eyebrow')}</p>
+        <h2>{t('about.title')}</h2>
+        <p>{t('about.p1')}</p>
+        <p>{t('about.p2')}</p>
+        <ul class="about__values">
+          {
+            values.map((v) => (
+              <li>
+                <Icon name="check" />
+                {t(`about.${v}`)}
+              </li>
+            ))
+          }
+        </ul>
+        <p class="muted">{t('about.p3')}</p>
+        <div class="btn-row">
+          <a class="btn btn--wa" href={whatsappLink(t('wa.default'))} target="_blank" rel="noopener" data-track="whatsapp-about"
+            ><Icon name="whatsapp" />{t('cta.whatsapp')}</a
+          >
+          <a class="btn btn--outline" href={`tel:${site.phone}`} data-track="call-about"><Icon name="phone" />{site.phoneDisplay}</a>
+        </div>
+      </div>
+      <aside class="about__card">
+        <div class="about__owner">
+          <Logo />
+          <div>
+            <p class="about__owner-name">{t('about.owner')}</p>
+            <p class="about__owner-role">{t('about.ownerRole')}</p>
+          </div>
+        </div>
+        <p class="about__since"><span>25+</span>{t('about.yearsLabel')}</p>
+        {
+          aboutQuote && (
+            <figure class="about__quote">
+              <blockquote lang={aboutQuote.quote[lang] ? lang : 'en'}>“{aboutQuote.quote[lang] ?? aboutQuote.quote.en}”</blockquote>
+              <figcaption>{t('about.quoteBy')}</figcaption>
+            </figure>
+          )
+        }
+      </aside>
+    </div>
+  </section>
+
+  <!-- Occasions -->
+  <section class="section" id="occasions">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="ornament"><Icon name="diya" class="inline-icon" /></div>
+        <h2>{t('occasions.title')}</h2>
+        <p>{t('occasions.lead')}</p>
+      </div>
+      {
+        groups.map((g) => (
+          <div class="occ-group">
+            <h3 class="occ-group__title">{t(`occasions.group.${g}`)}</h3>
+            <div class="occ-grid">
+              {occasions
+                .filter((o) => o.group === g)
+                .map((o) => (
+                  <a class="occ-card" href={p(`/occasions/${o.slug}/`)}>
+                    <span class="occ-card__icon" aria-hidden="true">
+                      {o.icon}
+                    </span>
+                    <span class="occ-card__name">{o.name[lang]}</span>
+                    <Icon name="arrow" class="occ-card__arrow" />
+                  </a>
+                ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Promise -->
+  <section class="section section--paper">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="ornament"><Icon name="leaf" class="inline-icon" /></div>
+        <h2>{t('promise.title')}</h2>
+        <p>{t('promise.lead')}</p>
+      </div>
+      <div class="grid grid--3">
+        {
+          promises.map((pr) => (
+            <div class="card">
+              <span class="icon-badge">
+                <Icon name={pr.icon} />
+              </span>
+              <h3>{t(`promise.${pr.key}.t`)}</h3>
+              <p>{t(`promise.${pr.key}.d`)}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="ornament"><Icon name="chef" class="inline-icon" /></div>
+        <h2>{t('services.title')}</h2>
+      </div>
+      <div class="grid grid--4">
+        {
+          services.map((s) => (
+            <div class="card service-card">
+              <span class="icon-badge">
+                <Icon name={s.icon} />
+              </span>
+              <h3>{t(`services.${s.key}.t`)}</h3>
+              <p>{t(`services.${s.key}.d`)}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature menu teaser -->
+  <section class="section section--paper">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="ornament"><Icon name="sparkle" class="inline-icon" /></div>
+        <h2>{t('menu.signature')}</h2>
+        <p>{t('menu.lead')}</p>
+      </div>
+      <div class="menu-teaser">
+        {
+          signature.map((c) => (
+            <a class="menu-teaser__item" href={p(`/menu/#${c.id}`)}>
+              <span aria-hidden="true">{c.icon}</span>
+              <span>
+                <strong>{c.name[lang]}</strong>
+                <small>{c.dishes.slice(0, 4).map((d) => d[lang]).join(' · ')}…</small>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+      <p class="center"><a class="btn btn--primary" href={p('/menu/')}>{t('cta.viewMenu')} <Icon name="arrow" /></a></p>
+    </div>
+  </section>
+
+  <!-- Ancestral rites -->
+  <section class="rites-band">
+    <div class="wrap rites-band__inner">
+      <div>
+        <h2>{t('rites.title')}</h2>
+        <p>{t('rites.lead')}</p>
+        <p class="rites-band__list">{rites.map((r) => r.name[lang]).join(' · ')}</p>
+      </div>
+      <a class="btn btn--light" href={p('/ancestral-rites/')}>{t('nav.rites')} <Icon name="arrow" /></a>
+    </div>
+  </section>
+
+  <!-- Areas -->
+  <section class="section" id="areas">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="ornament"><Icon name="pin" class="inline-icon" /></div>
+        <h2>{t('areas.title')}</h2>
+        <p>{t('areas.lead')}</p>
+      </div>
+      <div class="areas">
+        <div class="card">
+          <h3>{t('areas.primaryTitle')}</h3>
+          <ul class="tag-list">
+            {site.areas.localities.map((a) => <li>{a}</li>)}
+          </ul>
+        </div>
+        <div class="card">
+          <h3>{t('areas.citiesTitle')}</h3>
+          <ul class="tag-list tag-list--gold">
+            {site.areas.cities.map((c) => <li>{c[lang]}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section section--paper" id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="ornament"><Icon name="star" class="inline-icon" /></div>
+        <h2>{t('reviews.title')}</h2>
+        <p>{t('reviews.lead')}</p>
+      </div>
+      {
+        testimonials.length > 0 && (
+          <div class="grid grid--3 testimonials">
+            {testimonials.map((r) => (
+              <figure class="card testimonial">
+                <div class="testimonial__stars" aria-label={`${r.rating} / 5`}>
+                  {Array.from({ length: r.rating }, () => (
+                    <Icon name="star" />
+                  ))}
+                </div>
+                <blockquote lang={r.quote[lang] ? lang : 'en'}>{r.quote[lang] ?? r.quote.en}</blockquote>
+                <figcaption>
+                  {r.name}
+                  {r.occasion && <span> · {r.occasion[lang]}</span>}
+                  <small class="testimonial__source">
+                    {t('reviews.google')}
+                    {lang !== 'en' && r.quote[lang] && <> · {t('reviews.translated')}</>}
+                  </small>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )
+      }
+      <p class="center">
+        <a class="btn btn--outline" href={site.googleReviewUrl} target="_blank" rel="noopener"
+          ><Icon name="star" />{t('reviews.cta')}</a
+        >
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap wrap--narrow">
+      <div class="section-head">
+        <h2>{t('faq.title')}</h2>
+      </div>
+      <FaqList lang={lang} />
+    </div>
+  </section>
+
+  <!-- Enquiry & contact -->
+  <section class="section section--paper" id="enquire">
+    <div class="wrap contact-grid" id="contact">
+      <div>
+        <div class="section-head section-head--left">
+          <h2>{t('enquiry.title')}</h2>
+          <p>{t('enquiry.lead')}</p>
+        </div>
+        <EnquiryForm lang={lang} />
+      </div>
+      <aside class="card contact-card">
+        <h3>{t('contact.title')}</h3>
+        <ul>
+          <li>
+            <Icon name="phone" />
+            <div><span>{t('contact.phone')}</span><a href={`tel:${site.phone}`}>{site.phoneDisplay}</a></div>
+          </li>
+          <li>
+            <Icon name="whatsapp" />
+            <div>
+              <span>WhatsApp</span><a href={whatsappLink(t('wa.default'))} target="_blank" rel="noopener">{site.phoneDisplay}</a>
+            </div>
+          </li>
+          <li>
+            <Icon name="mail" />
+            <div><span>{t('contact.email')}</span><a href={`mailto:${site.email}`}>{site.email}</a></div>
+          </li>
+          <li>
+            <Icon name="pin" />
+            <div>
+              <span>{t('contact.address')}</span>
+              <address>{site.address.display[lang]}</address>
+              <a href={site.mapUrl} target="_blank" rel="noopener">{t('contact.directions')} →</a>
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</Layout>
