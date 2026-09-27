@@ -1,0 +1,102 @@
+---
+import Icon from './Icon.astro';
+import type { Lang } from '../data/types';
+import { occasions } from '../data/occasions';
+import { rites } from '../data/rites';
+import { site } from '../data/site';
+import { useT } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  /** Pre-select an occasion (by slug). */
+  occasion?: string;
+}
+
+const { lang, occasion } = Astro.props;
+const t = useT(lang);
+const today = new Date().toISOString().slice(0, 10);
+---
+
+<form class="enquiry card" data-enquiry data-wa={site.whatsapp} data-intro={t('enquiry.msgIntro')}>
+  <div class="enquiry__grid">
+    <label>
+      <span>{t('enquiry.name')}</span>
+      <input name="name" autocomplete="name" required />
+    </label>
+    <label>
+      <span>{t('enquiry.occasion')}</span>
+      <select name="occasion" required>
+        <option value="">{t('enquiry.occasionPick')}</option>
+        {
+          occasions.map((o) => (
+            <option value={o.name[lang]} selected={o.slug === occasion}>
+              {o.name[lang]}
+            </option>
+          ))
+        }
+        {
+          rites.map((r) => (
+            <option value={r.name[lang]} selected={r.slug === occasion}>
+              {r.name[lang]}
+            </option>
+          ))
+        }
+        <option value={t('occasions.other')}>{t('occasions.other')}</option>
+      </select>
+    </label>
+    <label>
+      <span>{t('enquiry.date')}</span>
+      <input name="date" type="date" min={today} />
+    </label>
+    <label>
+      <span>{t('enquiry.guests')}</span>
+      <input name="guests" type="number" inputmode="numeric" min="1" step="1" />
+    </label>
+    <label>
+      <span>{t('enquiry.area')}</span>
+      <input name="area" autocomplete="address-level2" />
+    </label>
+    <label>
+      <span>{t('enquiry.service')}</span>
+      <select name="service">
+        <option>{t('enquiry.service.full')}</option>
+        <option>{t('enquiry.service.cooks')}</option>
+        <option>{t('enquiry.service.sweets')}</option>
+      </select>
+    </label>
+    <label class="enquiry__check">
+      <input name="sattvic" type="checkbox" value={t('enquiry.sattvic')} />
+      <span>{t('enquiry.sattvic')}</span>
+    </label>
+    <label class="enquiry__full">
+      <span>{t('enquiry.notes')}</span>
+      <textarea name="notes" rows="3"></textarea>
+    </label>
+  </div>
+  <div class="btn-row enquiry__actions">
+    <button class="btn btn--wa" type="submit" data-track="whatsapp-form"><Icon name="whatsapp" />{t('enquiry.submit')}</button>
+    <a class="btn btn--outline" href={`tel:${site.phone}`} data-track="call-form"><Icon name="phone" />{t('enquiry.orCall')}</a>
+  </div>
+</form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-enquiry]').forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const lines = [form.dataset.intro ?? ''];
+      form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[name]').forEach((field) => {
+        if (field instanceof HTMLInputElement && field.type === 'checkbox') {
+          if (field.checked) lines.push(`• ${field.value}`);
+          return;
+        }
+        const value = field.value.trim();
+        if (!value) return;
+        const label = field.closest('label')?.querySelector('span')?.textContent?.trim();
+        lines.push(`• ${label}: ${value}`);
+      });
+      const url = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(url, '_blank', 'noopener');
+    });
+  });
+</script>

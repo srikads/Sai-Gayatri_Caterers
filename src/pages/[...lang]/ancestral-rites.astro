@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
+import EnquiryForm from '../../components/EnquiryForm.astro';
+import type { Lang } from '../../data/types';
+import { rites } from '../../data/rites';
+import { site, whatsappLink } from '../../data/site';
+import { useT, localePath, langStaticPaths } from '../../i18n/ui';
+
+export const getStaticPaths = langStaticPaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const t = useT(lang);
+---
+
+<Layout lang={lang} title={t('rites.title')} description={t('rites.lead')}>
+  <section class="page-hero page-hero--sober">
+    <div class="wrap">
+      <nav class="breadcrumbs"><a href={localePath(lang, '/')}>{t('nav.home')}</a> / {t('rites.title')}</nav>
+      <h1>{t('rites.title')}</h1>
+      <p>{t('rites.lead')}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--2">
+        {
+          rites.map((r) => (
+            <div class="card rite-card" id={r.slug}>
+              <h2>{r.name[lang]}</h2>
+              <p>{r.blurb[lang]}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="card rites-note">
+        <Icon name="diya" class="rites-note__icon" />
+        <div>
+          <p>{t('rites.note')}</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href={`tel:${site.phone}`} data-track="call-rites"><Icon name="phone" />{site.phoneDisplay}</a>
+            <a class="btn btn--wa" href={whatsappLink(t('wa.default'))} target="_blank" rel="noopener" data-track="whatsapp-rites"
+              ><Icon name="whatsapp" />{t('cta.whatsapp')}</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap--narrow mt">
+        <EnquiryForm lang={lang} />
+      </div>
+    </div>
+  </section>
+</Layout>

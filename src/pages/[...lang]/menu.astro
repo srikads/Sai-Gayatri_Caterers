@@ -1,0 +1,184 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
+import type { Lang, MenuCategory } from '../../data/types';
+import { menu } from '../../data/menu';
+import { site } from '../../data/site';
+import { useT, localePath, langStaticPaths } from '../../i18n/ui';
+
+export const getStaticPaths = langStaticPaths;
+
+const { lang } = Astro.props as { lang: Lang };
+const t = useT(lang);
+const other: Lang = lang === 'en' ? 'te' : 'en';
+
+const sections: { title: string; cats: MenuCategory[]; open: boolean }[] = [
+  { title: t('menu.signature'), cats: menu.filter((c) => c.featured), open: true },
+  { title: t('menu.onRequest'), cats: menu.filter((c) => !c.featured), open: false },
+];
+
+const pickLabels = {
+  pick: lang === 'te' ? 'ఎంచుకోండి' : 'Pick',
+  selected: lang === 'te' ? 'ఎంచుకున్న వంటకాలు' : 'dishes picked',
+  send: lang === 'te' ? 'వాట్సాప్‌లో పంపండి' : 'Send on WhatsApp',
+  clear: lang === 'te' ? 'తొలగించు' : 'Clear',
+  intro: lang === 'te' ? 'నమస్కారం! ఈ వంటకాలతో మెనూ కావాలి:' : 'Namaskaram! I would like a menu with these dishes:',
+};
+---
+
+<Layout lang={lang} title={t('menu.title')} description={t('menu.lead')}>
+  <section class="page-hero pattern-dots">
+    <div class="wrap">
+      <nav class="breadcrumbs"><a href={localePath(lang, '/')}>{t('nav.home')}</a> / {t('nav.menu')}</nav>
+      <h1>{t('menu.title')}</h1>
+      <p>{t('menu.lead')}</p>
+    </div>
+  </section>
+
+  <section class="section menu-page" data-menu>
+    <div class="wrap">
+      <div class="menu-tools">
+        <label class="menu-search">
+          <Icon name="search" />
+          <span class="sr-only">{t('menu.search')}</span>
+          <input type="search" placeholder={t('menu.search')} data-menu-search />
+        </label>
+        <div class="btn-row">
+          <button class="btn btn--outline btn--sm" type="button" data-menu-expand>{t('menu.expandAll')}</button>
+          <button class="btn btn--outline btn--sm" type="button" data-menu-collapse>{t('menu.collapseAll')}</button>
+        </div>
+      </div>
+      <p class="menu-note"><Icon name="whatsapp" class="inline-icon" /> {t('menu.buildNote')}</p>
+
+      <nav class="menu-jump" aria-label={t('menu.title')}>
+        {menu.map((c) => <a href={`#${c.id}`}>{c.icon} {c.name[lang]}</a>)}
+      </nav>
+
+      {
+        sections.map((s) => (
+          <div class="menu-section" data-menu-section>
+            <h2 class="menu-section__title">{s.title}</h2>
+            <div class="menu-cats">
+              {s.cats.map((c) => (
+                <details class="menu-cat" id={c.id} open={s.open} data-menu-cat>
+                  <summary>
+                    <span class="menu-cat__icon" aria-hidden="true">
+                      {c.icon}
+                    </span>
+                    <span class="menu-cat__name">
+                      {c.name[lang]}
+                      <small lang={other}>{c.name[other]}</small>
+                    </span>
+                    <span class="menu-cat__count">
+                      {c.dishes.length} {t('menu.items')}
+                    </span>
+                    <Icon name="chevron" class="menu-cat__chev" />
+                  </summary>
+                  <ul class="dish-list">
+                    {c.dishes.map((d) => (
+                      <li data-search={`${d.en} ${d.te}`.toLowerCase()}>
+                        <button type="button" class="dish" aria-pressed="false" data-dish={d[lang]}>
+                          <span class="dish__name">{d[lang]}</span>
+                          <span class="dish__alt" lang={other}>
+                            {d[other]}
+                          </span>
+                          <span class="dish__pick" aria-hidden="true">
+                            <Icon name="check" />
+                          </span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+      <p class="menu-empty" hidden data-menu-empty>{t('menu.noResults')}</p>
+    </div>
+  </section>
+
+  <div class="pick-bar" hidden data-pick-bar data-wa={site.whatsapp} data-intro={pickLabels.intro}>
+    <div class="wrap pick-bar__inner">
+      <span><strong data-pick-count>0</strong> {pickLabels.selected}</span>
+      <div class="btn-row">
+        <button class="btn btn--light btn--sm" type="button" data-pick-clear>{pickLabels.clear}</button>
+        <button class="btn btn--wa btn--sm" type="button" data-pick-send data-track="whatsapp-menu"
+          ><Icon name="whatsapp" />{pickLabels.send}</button
+        >
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-menu]');
+  if (root) {
+    const cats = [...root.querySelectorAll<HTMLDetailsElement>('[data-menu-cat]')];
+    const search = root.querySelector<HTMLInputElement>('[data-menu-search]');
+    const empty = root.querySelector<HTMLElement>('[data-menu-empty]');
+    const initialOpen = new Map(cats.map((c) => [c, c.open]));
+
+    search?.addEventListener('input', () => {
+      const q = search.value.trim().toLowerCase();
+      let total = 0;
+      cats.forEach((cat) => {
+        let hits = 0;
+        cat.querySelectorAll<HTMLElement>('li[data-search]').forEach((li) => {
+          const match = !q || (li.dataset.search ?? '').includes(q);
+          li.hidden = !match;
+          if (match) hits++;
+        });
+        cat.hidden = hits === 0;
+        cat.open = q ? hits > 0 : (initialOpen.get(cat) ?? false);
+        total += hits;
+      });
+      root.querySelectorAll<HTMLElement>('[data-menu-section]').forEach((s) => {
+        s.hidden = ![...s.querySelectorAll('[data-menu-cat]')].some((c) => !(c as HTMLElement).hidden);
+      });
+      if (empty) empty.hidden = total > 0;
+    });
+
+    root.querySelector('[data-menu-expand]')?.addEventListener('click', () => cats.forEach((c) => (c.open = true)));
+    root.querySelector('[data-menu-collapse]')?.addEventListener('click', () => cats.forEach((c) => (c.open = false)));
+
+    // Open a category when jumped to via #hash.
+    const openHash = () => {
+      const target = location.hash && document.getElementById(location.hash.slice(1));
+      if (target instanceof HTMLDetailsElement) target.open = true;
+    };
+    openHash();
+    window.addEventListener('hashchange', openHash);
+
+    // Pick dishes and send the list on WhatsApp.
+    const bar = document.querySelector<HTMLElement>('[data-pick-bar]');
+    const count = bar?.querySelector('[data-pick-count]');
+    const picked = new Set<string>();
+    const dishes = [...root.querySelectorAll<HTMLButtonElement>('[data-dish]')];
+    const refresh = () => {
+      if (!bar || !count) return;
+      bar.hidden = picked.size === 0;
+      count.textContent = String(picked.size);
+    };
+    dishes.forEach((btn) =>
+      btn.addEventListener('click', () => {
+        const name = btn.dataset.dish ?? '';
+        const on = !picked.has(name);
+        on ? picked.add(name) : picked.delete(name);
+        // The same dish can appear in two categories; keep both buttons in sync.
+        dishes.filter((b) => b.dataset.dish === name).forEach((b) => b.setAttribute('aria-pressed', String(on)));
+        refresh();
+      }),
+    );
+    bar?.querySelector('[data-pick-clear]')?.addEventListener('click', () => {
+      picked.clear();
+      dishes.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+      refresh();
+    });
+    bar?.querySelector('[data-pick-send]')?.addEventListener('click', () => {
+      const text = [bar.dataset.intro, ...[...picked].map((d) => `• ${d}`)].join('\n');
+      window.open(`https://wa.me/${bar.dataset.wa}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    });
+  }
+</script>

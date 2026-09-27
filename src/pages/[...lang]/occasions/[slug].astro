@@ -1,0 +1,112 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Icon from '../../../components/Icon.astro';
+import EnquiryForm from '../../../components/EnquiryForm.astro';
+import type { Lang, Occasion } from '../../../data/types';
+import { occasions } from '../../../data/occasions';
+import { site, whatsappLink } from '../../../data/site';
+import { useT, localePath, langStaticPaths } from '../../../i18n/ui';
+
+export function getStaticPaths() {
+  return langStaticPaths().flatMap(({ params, props }) =>
+    occasions.map((occasion) => ({
+      params: { ...params, slug: occasion.slug },
+      props: { ...props, occasion },
+    })),
+  );
+}
+
+const { lang, occasion } = Astro.props as { lang: Lang; occasion: Occasion };
+const t = useT(lang);
+const p = (path: string) => localePath(lang, path);
+const related = occasions.filter((o) => o.group === occasion.group && o.slug !== occasion.slug);
+const waText = `${t('enquiry.msgIntro')}\n• ${t('enquiry.occasion')}: ${occasion.name[lang]}`;
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: `${occasion.name.en} catering`,
+  name: `${occasion.name[lang]} | ${site.name[lang]}`,
+  description: occasion.blurb[lang],
+  provider: { '@id': `${site.url}/#business` },
+  areaServed: ['Hyderabad', 'Secunderabad', ...site.areas.cities.map((c) => c.en)],
+};
+---
+
+<Layout lang={lang} title={occasion.name[lang]} description={occasion.blurb[lang]} schema={[serviceSchema]}>
+  <section class="page-hero pattern-dots">
+    <div class="wrap">
+      <nav class="breadcrumbs">
+        <a href={p('/')}>{t('nav.home')}</a> / <a href={p('/occasions/')}>{t('nav.occasions')}</a> / {occasion.name[lang]}
+      </nav>
+      <p class="eyebrow">{t(`occasions.group.${occasion.group}`)}</p>
+      <h1><span aria-hidden="true">{occasion.icon}</span> {occasion.name[lang]}</h1>
+      <p>{occasion.blurb[lang]}</p>
+      <div class="btn-row">
+        <a class="btn btn--wa" href={whatsappLink(waText)} target="_blank" rel="noopener" data-track="whatsapp-occasion"
+          ><Icon name="whatsapp" />{t('cta.whatsapp')}</a
+        >
+        <a class="btn btn--light" href={`tel:${site.phone}`} data-track="call-occasion"><Icon name="phone" />{t('cta.call')}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap occasion-layout">
+      <div>
+        <div class="card sample-menu">
+          <h2>{t('occasions.sampleMenu')}</h2>
+          <ol class="leaf-list">
+            {
+              occasion.menu[lang].map((dish, i) => (
+                <li>
+                  <span>{dish}</span>
+                  {lang === 'en' && <small lang="te">{occasion.menu.te[i]}</small>}
+                </li>
+              ))
+            }
+          </ol>
+          <p class="sample-menu__note"><Icon name="leaf" class="inline-icon" /> {t('occasions.customise')}</p>
+        </div>
+
+        <h2 class="mt">{t('cta.enquire')}</h2>
+        <EnquiryForm lang={lang} occasion={occasion.slug} />
+      </div>
+
+      <aside class="occasion-aside">
+        <div class="card">
+          <h3>{t('promise.title')}</h3>
+          <ul class="check-list">
+            {
+              (['madi', 'sattvic', 'ghee', 'leaf', 'tradition'] as const).map((k) => (
+                <li>
+                  <Icon name="check" />
+                  {t(`promise.${k}.t`)}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        {
+          related.length > 0 && (
+            <div class="card">
+              <h3>{t('occasions.other')}</h3>
+              <ul class="link-list">
+                {related.map((o) => (
+                  <li>
+                    <a href={p(`/occasions/${o.slug}/`)}>
+                      {o.icon} {o.name[lang]}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <a class="link-more" href={p('/occasions/')}>
+                {t('nav.allOccasions')} <Icon name="arrow" class="inline-icon" />
+              </a>
+            </div>
+          )
+        }
+      </aside>
+    </div>
+  </section>
+</Layout>

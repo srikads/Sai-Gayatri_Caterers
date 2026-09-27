@@ -1,0 +1,65 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import type { Lang } from '../data/types';
+import { site } from '../data/site';
+import { occasions } from '../data/occasions';
+import { useT, localePath } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useT(lang);
+const p = (path: string) => localePath(lang, path);
+const featured = ['pelli', 'upanayanam', 'gruhapravesam', 'satyanarayana-vratham', 'seemantham', 'varalakshmi-vratham'];
+const footerOccasions = occasions.filter((o) => featured.includes(o.slug));
+---
+
+<footer class="site-footer pattern-dots">
+  <div class="wrap site-footer__grid">
+    <div class="site-footer__brand">
+      <a class="brand brand--footer" href={p('/')}>
+        <Logo />
+        <span class="brand__text">
+          <span class="brand__name">{site.name[lang]}</span>
+          <span class="brand__tag">{t('brand.tagline')}</span>
+        </span>
+      </a>
+      <p>{t('promise.lead')}</p>
+      <p class="chip chip--footer"><Icon name="leaf" class="inline-icon" /> {t('footer.pureVeg')}</p>
+    </div>
+
+    <div>
+      <h2 class="site-footer__h">{t('nav.occasions')}</h2>
+      <ul>
+        {footerOccasions.map((o) => <li><a href={p(`/occasions/${o.slug}/`)}>{o.name[lang]}</a></li>)}
+        <li><a href={p('/ancestral-rites/')}>{t('nav.rites')}</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="site-footer__h">{t('footer.quick')}</h2>
+      <ul>
+        <li><a href={p('/menu/')}>{t('nav.menu')}</a></li>
+        <li><a href={p('/occasions/')}>{t('nav.allOccasions')}</a></li>
+        <li><a href={p('/#services')}>{t('nav.services')}</a></li>
+        <li><a href={p('/#faq')}>{t('faq.title')}</a></li>
+        <li><a href={p('/#contact')}>{t('nav.contact')}</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="site-footer__h">{t('contact.title')}</h2>
+      <ul class="site-footer__contact">
+        <li><Icon name="phone" /><a href={`tel:${site.phone}`}>{site.phoneDisplay}</a></li>
+        <li><Icon name="mail" /><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li><Icon name="pin" /><a href={site.mapUrl} target="_blank" rel="noopener">{site.address.display[lang]}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap site-footer__bottom">
+    <p>© {new Date().getFullYear()} {site.name[lang]}. {t('footer.rights')}</p>
+  </div>
+</footer>
