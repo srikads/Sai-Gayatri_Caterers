@@ -111,8 +111,10 @@ const en = {
   'areas.citiesTitle': 'Also serving',
 
   'reviews.title': 'What families say',
-  'reviews.lead': 'Read our reviews on Google, or share your own experience.',
+  'reviews.lead': 'Families who have trusted us for years, in their own words on Google.',
   'reviews.cta': 'Rate us on Google',
+  'reviews.google': 'Google review',
+  'reviews.translated': 'translated from English',
 
   'faq.title': 'Frequently asked questions',
 
@@ -251,8 +253,10 @@ const te: Record<UIKey, string> = {
   'areas.citiesTitle': 'ఇక్కడ కూడా సేవలు',
 
   'reviews.title': 'కుటుంబాల అభిప్రాయాలు',
-  'reviews.lead': 'గూగుల్‌లో మా రివ్యూలు చదవండి, లేదా మీ అనుభవం పంచుకోండి.',
+  'reviews.lead': 'ఏళ్ళుగా మమ్మల్ని నమ్ముకున్న కుటుంబాలు, గూగుల్‌లో వారి మాటల్లోనే.',
   'reviews.cta': 'గూగుల్‌లో రేట్ చేయండి',
+  'reviews.google': 'గూగుల్ రివ్యూ',
+  'reviews.translated': 'ఇంగ్లీష్ నుండి అనువాదం',
 
   'faq.title': 'తరచుగా అడిగే ప్రశ్నలు',
 

@@ -906,3 +906,13 @@
   flex: none;
   white-space: nowrap;
 }
+.testimonials {
+  align-items: start;
+}
+.testimonial__source {
+  display: block;
+  margin-top: 4px;
+  font-weight: 400;
+  font-size: 0.82rem;
+  color: var(--muted);
+}

@@ -262,10 +262,14 @@ const faqSchema = {
                     <Icon name="star" />
                   ))}
                 </div>
-                <blockquote>{r.quote[lang] ?? r.quote.en}</blockquote>
+                <blockquote lang={r.quote[lang] ? lang : 'en'}>{r.quote[lang] ?? r.quote.en}</blockquote>
                 <figcaption>
                   {r.name}
                   {r.occasion && <span> · {r.occasion[lang]}</span>}
+                  <small class="testimonial__source">
+                    {t('reviews.google')}
+                    {lang !== 'en' && r.quote[lang] && <> · {t('reviews.translated')}</>}
+                  </small>
                 </figcaption>
               </figure>
             ))}
